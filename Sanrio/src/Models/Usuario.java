@@ -1,5 +1,5 @@
 package Models;
 
-public class User {
+public class Usuario {
     
 }
