@@ -1,0 +1,4 @@
+Name: Kuromi
+DescriptionEnglish:Kuromi is a tomboy, but behind her tough appearance, she is actually very girly. She enjoys writing in her diary and reading romance novels.
+DescriptionSpanish:Kuromi es una chica marimacho, pero tras su apariencia ruda, en realidad es muy femenina. Le gusta escribir en su diario y leer novelas románticas.
+Color: F97FB5

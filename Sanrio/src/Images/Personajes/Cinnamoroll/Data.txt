@@ -1,0 +1,4 @@
+Name: Cinnamoroll
+DescriptionEnglish: Cinnamoroll is Cafe Cinnamon's official mascot. He is quite shy, but very friendly, and sometimes takes a nap on customers' laps. He can fly through the air by flapping his huge ears.
+DescriptionSpanish:Cinnamoroll es la mascota oficial del Café Cinnamon. Es bastante tímido, pero muy amigable, y a veces se echa una siesta en el regazo de los clientes. Puede volar por los aires aleteando con sus enormes orejas.
+Color: BBD2FB

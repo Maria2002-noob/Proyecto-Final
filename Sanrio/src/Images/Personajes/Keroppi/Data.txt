@@ -1,0 +1,4 @@
+Name: Keroppi
+DescriptionEnglish: Keroppi lives with his brother, sister, and parents in a big house on the edge of Donut Pond, the largest and bluest pond around. Keroppi's friends share his love of playing games, especially baseball and boomerangs.
+DescriptionSpanish: Keroppi vive con su hermano, su hermana y sus padres en una casa grande a orillas del Estanque Donut, el estanque más grande y azul de la zona. Los amigos de Keroppi comparten su afición por los juegos, sobre todo el béisbol y los bumeranes.
+Color: CDDB00

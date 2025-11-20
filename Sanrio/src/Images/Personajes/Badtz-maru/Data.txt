@@ -1,0 +1,4 @@
+Name: Badtz-maru
+DescriptionEnglish: Badtz-maru is one mischievous little penguin. He lives with his mother and pinball playing father in Gorgeoustown. Badtz-maru attracts lots of attention as he walks his pet alligator, Pochi. Badtz-maru has dreams of greatness when he grows up, but for now he rolls his eyes at his humorous life in Gorgeoustown.
+DescriptionSpanish: Badtz-maru es un pingüino travieso. Vive con su madre y su padre, aficionado al pinball, en Ciudad Preciosa. Badtz-maru llama mucho la atención cuando pasea a su caimán mascota, Pochi. De mayor, Badtz-maru sueña con la grandeza, pero por ahora se ríe de su divertida vida en Ciudad Preciosa.
+Color: FFD101

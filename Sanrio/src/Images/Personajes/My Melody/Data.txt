@@ -1,0 +1,4 @@
+Name: My Melody
+DescriptionEnglish: My Melody was born in the forest of Mariland. Her favorite hobby is baking cookies with her mother, and her favorite food is almond pound cake. She enjoys eating cake with her best friend, a mouse named Flat.
+DescripitonSpanish:Mi Melody nació en el bosque de Mariland. Su pasatiempo favorito es hornear galletas con su madre, y su comida favorita es el bizcocho de almendras. Le encanta comer pastel con su mejor amigo, un ratón llamado Flat.
+Color: F97FB5

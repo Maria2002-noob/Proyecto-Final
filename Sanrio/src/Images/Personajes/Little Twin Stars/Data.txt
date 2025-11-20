@@ -1,0 +1,4 @@
+Name: Little Twin Stars
+DescriptionEnglish: Kiki and Lala are two twin stars born on Omoiyari Star in the Yume Star-Cloud. They traveled a long way to Earth to learn how to be the best, shiniest stars they can be. Lala is the eldest, loves to draw and write poems, and is a great cook! Kiki is filled with curiosity about everything, which makes him a little cheeky sometimes.
+DescriptionSpanish: Kiki y Lala son dos estrellas gemelas nacidas en la estrella Omoiyari, en la nube estelar Yume. Viajaron un largo camino hasta la Tierra para aprender a ser las estrellas más brillantes y poderosas que pudieran ser. Lala es la mayor, le encanta dibujar y escribir poemas, ¡y es una excelente cocinera! Kiki es muy curioso, lo que a veces lo hace un poco travieso.
+Color: 6BC4E8
