@@ -7,7 +7,7 @@
 .header-pane {
     -fx-background-color: #EAF6FB;
     -fx-min-height: 60px;
-    -fx-pref-height: 80px;
+    -fx-pref-height: 100px;
 }
 
 #logoImageView {
@@ -38,8 +38,8 @@
     -fx-background-color: #EAF6FB;
     -fx-border-color: #000000;
     -fx-border-width: 1px;
-    -fx-border-radius: 5px;
-    -fx-background-radius: 5px;
+    -fx-border-radius: 15px;
+    -fx-background-radius: 15px;
     -fx-padding: 10px;
     -fx-font-size: 14px;
     -fx-text-fill: #000000;
@@ -55,8 +55,8 @@
     -fx-background-color: #EAF6FB;
     -fx-border-color: #000000;
     -fx-border-width: 1px;
-    -fx-border-radius: 5px;
-    -fx-background-radius: 5px;
+    -fx-border-radius: 15px;
+    -fx-background-radius: 15px;
     -fx-padding: 10px;
     -fx-font-size: 14px;
     -fx-text-fill: #000000;
@@ -88,6 +88,31 @@
 .sign-in-label {
     -fx-text-fill: #000000;
     -fx-font-size: 12px;
+    -fx-cursor: hand;
+}
+
+.sign-in-label:hover {
+    -fx-text-fill: #01B032;
+    -fx-underline: true;
+}
+
+/* Cancel Button Styles */
+.cancel-button {
+    -fx-background-color: #0360AA;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.cancel-button:hover {
+    -fx-background-color: #024A8A;
+}
+
+.cancel-button:pressed {
+    -fx-background-color: #013570;
 }
 
 /* Character Image Styles */
@@ -95,11 +120,15 @@
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 8, 0, 0, 2);
 }
 
+.character-image:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 15, 0.5, 0, 2);
+}
+
 /* Footer Styles */
 .footer-pane {
     -fx-background-color: #F5F5DC;
     -fx-min-height: 80px;
-    -fx-pref-height: 120px;
+    -fx-pref-height: 100px;
 }
 
 #bannerImageView {
