@@ -106,7 +106,7 @@
               <AnchorPane prefHeight="200.0" prefWidth="418.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
                   <ImageView id="twinStarsImageView" fx:id="twinStarsImageView" fitHeight="150.0" fitWidth="150.0" layoutX="268.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" styleClass="character-image">
                       <image>
-                          <Image url="@../Images/Personajes/Little Twin Stars/Little_Twin_Stars_logo.jpg" />
+                          <Image url="@../Images/Personajes/Little%20Twin%20Stars/Little_Twin_Stars_logo.jpg" />
                       </image>
                   </ImageView>
               </AnchorPane>
