@@ -1,1 +1,114 @@
+/* Root Styles */
+.mainFxmlClass {
+    -fx-background-color: #FFFFFF;
+}
 
+/* Header Styles */
+.header-pane {
+    -fx-background-color: #EAF6FB;
+    -fx-min-height: 60px;
+    -fx-pref-height: 80px;
+}
+
+#logoImageView {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 2);
+}
+
+/* Center logo horizontally */
+#headerPane {
+    -fx-alignment: center;
+}
+
+/* Main Content Styles */
+.main-content-pane {
+    -fx-background-color: #FFFFFF;
+}
+
+/* Login Form Styles */
+#loginFormStackPane {
+    -fx-alignment: center;
+}
+
+#loginFormContainer {
+    -fx-alignment: center;
+    -fx-spacing: 15px;
+}
+
+.login-text-field {
+    -fx-background-color: #EAF6FB;
+    -fx-border-color: #000000;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 10px;
+    -fx-font-size: 14px;
+    -fx-text-fill: #000000;
+}
+
+.login-text-field:focused {
+    -fx-border-color: #01B032;
+    -fx-border-width: 2px;
+}
+
+/* PasswordField styles (same as TextField) */
+#passwordTextField {
+    -fx-background-color: #EAF6FB;
+    -fx-border-color: #000000;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 10px;
+    -fx-font-size: 14px;
+    -fx-text-fill: #000000;
+}
+
+#passwordTextField:focused {
+    -fx-border-color: #01B032;
+    -fx-border-width: 2px;
+}
+
+.login-button {
+    -fx-background-color: #01B032;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.login-button:hover {
+    -fx-background-color: #019028;
+}
+
+.login-button:pressed {
+    -fx-background-color: #016B1E;
+}
+
+.sign-in-label {
+    -fx-text-fill: #000000;
+    -fx-font-size: 12px;
+}
+
+/* Character Image Styles */
+.character-image {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 8, 0, 0, 2);
+}
+
+/* Footer Styles */
+.footer-pane {
+    -fx-background-color: #F5F5DC;
+    -fx-min-height: 80px;
+    -fx-pref-height: 120px;
+}
+
+#bannerImageView {
+    -fx-opacity: 1.0;
+    -fx-smooth: true;
+}
+
+#footerPane {
+    -fx-background-color: #F5F5DC;
+}
+
+/* Responsive design is handled through AnchorPane constraints in FXML */
