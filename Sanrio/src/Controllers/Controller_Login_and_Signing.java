@@ -121,7 +121,7 @@ public class Controller_Login_and_Signing implements Initializable {
     
     @FXML
     public void handleAccept(ActionEvent event) {
-        // TODO: Implementar lógica de registro
+        
     }
     
 }
