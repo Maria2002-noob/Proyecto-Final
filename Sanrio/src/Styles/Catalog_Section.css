@@ -1,0 +1,119 @@
+/* Catalog Section Styles */
+
+/* Header Styles */
+.header-pane {
+    -fx-background-color: #EAF6FB;
+    -fx-min-height: 60px;
+    -fx-pref-height: 80px;
+}
+
+.nav-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #000000;
+    -fx-cursor: hand;
+    -fx-padding: 5px 10px;
+}
+
+.nav-label:hover {
+    -fx-text-fill: #01B032;
+    -fx-underline: true;
+}
+
+/* Main Content Styles */
+.main-content {
+    -fx-background-color: #FFFFFF;
+    -fx-padding: 30px;
+}
+
+/* Characters Section */
+.characters-section {
+    -fx-padding: 20px;
+    -fx-alignment: center;
+}
+
+.section-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #000000;
+}
+
+.characters-flowpane {
+    -fx-padding: 20px;
+    -fx-alignment: center;
+}
+
+/* Products Section */
+.products-section {
+    -fx-padding: 20px;
+}
+
+.products-flowpane {
+    -fx-padding: 10px;
+    -fx-alignment: center;
+}
+
+/* Footer Styles */
+.footer-pane {
+    -fx-background-color: #F5F5DC;
+    -fx-min-height: 80px;
+    -fx-pref-height: 120px;
+}
+
+#bannerImageView {
+    -fx-opacity: 1.0;
+    -fx-smooth: true;
+}
+
+/* Account Dropdown Menu */
+.account-dropdown {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 2);
+    -fx-padding: 10px 0px;
+    -fx-spacing: 5px;
+}
+
+.account-email {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #000000;
+    -fx-padding: 10px 15px;
+}
+
+.account-menu-options {
+    -fx-padding: 5px 0px;
+    -fx-spacing: 0px;
+}
+
+.account-menu-item {
+    -fx-font-size: 14px;
+    -fx-text-fill: #000000;
+    -fx-padding: 10px 15px;
+    -fx-cursor: hand;
+    -fx-background-color: transparent;
+}
+
+.account-menu-item:hover {
+    -fx-background-color: #EAF6FB;
+}
+
+.account-logout {
+    -fx-text-fill: #FF0000;
+}
+
+.account-logout:hover {
+    -fx-background-color: #FFE6E6;
+    -fx-text-fill: #CC0000;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .nav-label {
+        -fx-font-size: 12px;
+    }
+    
+    .section-title {
+        -fx-font-size: 20px;
+    }
+}
+

@@ -1,0 +1,86 @@
+/* Product Card Container - AnchorPane raíz */
+.product-card-container {
+    -fx-pref-width: 190px;
+    -fx-pref-height: 300px;
+    -fx-min-width: 190px;
+    -fx-min-height: 300px;
+    -fx-max-width: 190px;
+    -fx-max-height: 300px;
+    -fx-background-color: #FFFFFF;
+}
+
+.product-card-container:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 10, 0, 0, 3);
+}
+
+/* Card Wrapper - VBox principal */
+.card-wrapper {
+    -fx-background-color: transparent;
+}
+
+/* Product Content Container - VBox interno */
+.product-content-container {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E0E0E0;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+}
+
+.product-content-container:hover {
+    -fx-border-color: #01B032;
+    -fx-effect: dropshadow(gaussian, rgba(1, 176, 50, 0.2), 5, 0, 0, 2);
+}
+
+/* Image Container */
+.product-image-container {
+    -fx-background-color: transparent;
+    -fx-alignment: center;
+}
+
+.product-image {
+    -fx-fit-to-width: 190px;
+    -fx-fit-to-height: 180px;
+}
+
+/* Product Name Label */
+.product-name-label {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #000000;
+    -fx-wrap-text: true;
+    -fx-max-width: 180px;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+}
+
+/* Product Price Label */
+.product-price-label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #01B032;
+    -fx-alignment: center;
+}
+
+/* Add to Bag Button */
+.add-to-bag-button {
+    -fx-background-color: #01B032;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-pref-width: 180px;
+    -fx-pref-height: 30px;
+    -fx-cursor: hand;
+    -fx-alignment: center;
+}
+
+.add-to-bag-button:hover {
+    -fx-background-color: #019028;
+    -fx-effect: dropshadow(gaussian, rgba(1, 176, 50, 0.4), 5, 0, 0, 2);
+}
+
+.add-to-bag-button:pressed {
+    -fx-background-color: #016B1E;
+}

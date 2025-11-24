@@ -1,5 +1,5 @@
-Name: Plush (Gaming Series)
-Category: Plush
-DescriptionEnglish: Ready, set, game! Put on your headset and get comfy while Badtz-maru joins in on your gaming sesh. Gaming runs in the family (Did you know his dad loves to play pinball?) and this series features plush and mini mascots keychains, made for fans of this mischievous little penguin!
-DescriptionSpanish: ¡Preparados, listos, a jugar! Ponte los auriculares y relájate mientras Badtz-maru se une a tu partida. ¡Los videojuegos corren por sus venas (¿Sabías que a su padre le encanta jugar al pinball?) y esta colección incluye peluches y llaveros con forma de mascota, ¡hechos para los fans de este travieso pingüinito!
-Price: 38.00
+nombre: Plush (Gaming Series)
+categoria: Plush
+descripcionIngles: Ready, set, game! Put on your headset and get comfy while Badtz-maru joins in on your gaming sesh. Gaming runs in the family (Did you know his dad loves to play pinball?) and this series features plush and mini mascots keychains, made for fans of this mischievous little penguin!
+descripcionEspanol: ¡Preparados, listos, a jugar! Ponte los auriculares y relájate mientras Badtz-maru se une a tu partida. ¡Los videojuegos corren por sus venas (¿Sabías que a su padre le encanta jugar al pinball?) y esta colección incluye peluches y llaveros con forma de mascota, ¡hechos para los fans de este travieso pingüinito!
+precio: 38.00

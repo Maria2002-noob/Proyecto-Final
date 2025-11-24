@@ -1,5 +1,5 @@
-Name: Chococat Plush Backpack
-Category: Plush, Backpack
-DescriptionEnglish: Cool like Chococat! Bring a bit of flair on your daily adventures with this plush backpack! Bold 3D details make this backpack stand out while a secret mini zip pocket keeps keys and smaller items close by! 
-DescriptionSpanish: ¡Tan genial como Chococat! Dale un toque de estilo a tus aventuras diarias con esta mochila de peluche. Sus llamativos detalles en 3D la hacen destacar, mientras que un mini bolsillo secreto con cremallera te permite tener las llaves y otros objetos pequeños a mano.
-Price: 14.99
+nombre: Chococat Plush Backpack
+categoria: Plush, Backpack
+descripcionIngles: Cool like Chococat! Bring a bit of flair on your daily adventures with this plush backpack! Bold 3D details make this backpack stand out while a secret mini zip pocket keeps keys and smaller items close by! 
+descripcionEspanol: ¡Tan genial como Chococat! Dale un toque de estilo a tus aventuras diarias con esta mochila de peluche. Sus llamativos detalles en 3D la hacen destacar, mientras que un mini bolsillo secreto con cremallera te permite tener las llaves y otros objetos pequeños a mano.
+precio: 14.99

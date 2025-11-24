@@ -1,1 +1,2 @@
-
+prueba_admin, 10624125, prueba_admin@gmail.com, 12345678, administrador
+maria, 10251426, maria@gmail.com, 12345678, cliente

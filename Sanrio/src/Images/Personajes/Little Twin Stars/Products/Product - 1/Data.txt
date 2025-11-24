@@ -1,5 +1,5 @@
-Name: LittleTwinStars Plush
-Category: Plush
-DescriptionEnglish: In honor of the 40th Anniversary Sanrio Character Ranking Awards, your favorite characters join in on the fun with a mini-me version of themselves! An expressive thought bubble and a winking expression show the sheer joy and excitement when hugging a pint-sized version tightly!
-DescriptionSpanish: ¡En honor al 40.º aniversario de los Premios Sanrio a los Mejores Personajes, tus personajes favoritos se unen a la diversión con una versión mini de sí mismos! ¡Un expresivo bocadillo de pensamiento y un guiño muestran la pura alegría y emoción de abrazar con fuerza a una versión en miniatura!
-Price: 44.00
+nombre: LittleTwinStars Plush
+categoria: Plush
+descripcionIngles: In honor of the 40th Anniversary Sanrio Character Ranking Awards, your favorite characters join in on the fun with a mini-me version of themselves! An expressive thought bubble and a winking expression show the sheer joy and excitement when hugging a pint-sized version tightly!
+descripcionEspanol: ¡En honor al 40.º aniversario de los Premios Sanrio a los Mejores Personajes, tus personajes favoritos se unen a la diversión con una versión mini de sí mismos! ¡Un expresivo bocadillo de pensamiento y un guiño muestran la pura alegría y emoción de abrazar con fuerza a una versión en miniatura!
+precio: 44.00

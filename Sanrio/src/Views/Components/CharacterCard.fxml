@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane fx:id="rootPane" prefHeight="150.0" prefWidth="150.0" styleClass="character-card-pane" stylesheets="@../../Styles/CharacterCard.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Component_CharacterCard">
+    <children>
+        <AnchorPane fx:id="backgroundPane" prefHeight="150.0" prefWidth="150.0" styleClass="character-card-background" />
+        <ImageView fx:id="characterImageView" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" styleClass="character-card-image" />
+    </children>
+</StackPane>

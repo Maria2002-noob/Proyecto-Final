@@ -1,5 +1,5 @@
-Name: Keroppi Tote Bag
-Category: Tote Bag
-DescriptionEnglish: Up, up, and away! Keroppi and Pekkle soar towards adventure! Catch these two drifting and dreaming through the clouds—all in the name of fun. Discover a colorfully bold collection of plush, bags, and small accessories full of wonderment for any fan of these two Sanrio friends!
-DescriptionSpanish: ¡Arriba, arriba y lejos! ¡Keroppi y Pekkle se lanzan a la aventura! Descubre a estos dos soñando despiertos entre las nubes, ¡todo por diversión! Una colección vibrante y llena de color de peluches, bolsos y pequeños accesorios que harán las delicias de cualquier fan de estos dos amigos de Sanrio.
-Price: 28.00
+nombre: Keroppi Tote Bag
+categoria: Tote Bag
+descripcionIngles: Up, up, and away! Keroppi and Pekkle soar towards adventure! Catch these two drifting and dreaming through the clouds—all in the name of fun. Discover a colorfully bold collection of plush, bags, and small accessories full of wonderment for any fan of these two Sanrio friends!
+descripcionEspanol: ¡Arriba, arriba y lejos! ¡Keroppi y Pekkle se lanzan a la aventura! Descubre a estos dos soñando despiertos entre las nubes, ¡todo por diversión! Una colección vibrante y llena de color de peluches, bolsos y pequeños accesorios que harán las delicias de cualquier fan de estos dos amigos de Sanrio.
+precio: 28.00

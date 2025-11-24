@@ -6,10 +6,10 @@ public class Nodo_Producto {
     private Producto producto;
     private Nodo_Producto anterior;
 
-    public Nodo_Producto(Nodo_Producto siguiente, Producto producto, Nodo_Producto anterior) {
-        this.siguiente = siguiente;
+    public Nodo_Producto(Producto producto) {
         this.producto = producto;
-        this.anterior = anterior;
+        this.siguiente = null;        
+        this.anterior = null;
     }
 
     public Nodo_Producto getSiguiente() {

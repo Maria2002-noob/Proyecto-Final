@@ -1,14 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Controller_Catalog_Section">
+<AnchorPane fx:id="root" prefHeight="800.0" prefWidth="1404.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Controller_Catalog_Section">
     <stylesheets>
-        <URL value="@/Styles/Styles.css"/>
+        <URL value="@../Styles/Catalog_Section.css" />
     </stylesheets>
+    
+    <!-- Header Section -->
+    <AnchorPane id="headerPane" fx:id="headerPane" prefHeight="80.0" styleClass="header-pane" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <HBox alignment="CENTER_LEFT" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="0.0">
+            <HBox fx:id="purchaseHistoryBox" alignment="CENTER" onMouseClicked="#handlePurchaseHistory" spacing="5.0" styleClass="nav-item" visible="false">
+                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../Images/Purchase.png" />
+                    </image>
+                </ImageView>
+                <Label fx:id="purchaseHistoryLabel" styleClass="nav-label" text="Purchase History" />
+            </HBox>
+            <ImageView fx:id="logoImageView" fitHeight="50.0" fitWidth="150.0" onMouseClicked="#handleLogoClick" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../Images/Logo.png" />
+                </image>
+            </ImageView>
+        </HBox>
+        <HBox alignment="CENTER_RIGHT" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+            <HBox alignment="CENTER" onMouseClicked="#handleWishlist" spacing="5.0" styleClass="nav-item">
+                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../Images/Favorite.png" />
+                    </image>
+                </ImageView>
+                <Label fx:id="wishlistLabel" styleClass="nav-label" text="Wishlist" />
+            </HBox>
+            <HBox fx:id="myAccountBox" alignment="CENTER" onMouseClicked="#handleMyAccount" spacing="5.0" styleClass="nav-item">
+                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../Images/Account.png" />
+                    </image>
+                </ImageView>
+                <Label fx:id="myAccountLabel" styleClass="nav-label" text="My Account" />
+            </HBox>
+            <HBox alignment="CENTER" onMouseClicked="#handleCart" spacing="5.0" styleClass="nav-item">
+                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../Images/ShoppingBag.png" />
+                    </image>
+                </ImageView>
+                <Label fx:id="cartLabel" styleClass="nav-label" text="Cart" />
+            </HBox>
+        </HBox>
+    </AnchorPane>
+    
+    <!-- Main Content Area -->
+    <ScrollPane fx:id="mainScrollPane" fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="NEVER" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
+        <content>
+            <VBox fx:id="mainContent" spacing="30.0" styleClass="main-content">
+                <!-- Characters Section -->
+                <VBox alignment="CENTER" spacing="20.0" styleClass="characters-section">
+                    <Label styleClass="section-title" text="WHO'S YOUR FAVORITE?" />
+                    <FlowPane fx:id="charactersFlowPane" alignment="CENTER" hgap="20.0" styleClass="characters-flowpane" vgap="20.0" />
+                </VBox>
+                
+                <!-- Products Section -->
+                <VBox alignment="CENTER_LEFT" spacing="20.0" styleClass="products-section">
+                    <FlowPane fx:id="productsFlowPane" alignment="CENTER" hgap="15.0" styleClass="products-flowpane" vgap="20.0" />
+                </VBox>
+            </VBox>
+        </content>
+    </ScrollPane>
+    
+    <!-- Footer Section -->
+    <AnchorPane id="footerPane" fx:id="footerPane" prefHeight="120.0" prefWidth="1440.0" styleClass="footer-pane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <ImageView fx:id="bannerImageView" fitHeight="120.0" fitWidth="1440.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <image>
+                <Image url="@../Images/Banner.png" />
+            </image>
+        </ImageView>
+    </AnchorPane>
+    
+    <!-- Account Dropdown Menu -->
+    <VBox fx:id="accountDropdownMenu" alignment="TOP_CENTER" layoutX="1150.0" layoutY="80.0" prefHeight="150.0" prefWidth="200.0" styleClass="account-dropdown" visible="false">
+        <children>
+            <!-- Email Display -->
+            <Label fx:id="userEmailLabel" styleClass="account-email" text="example@gmail.com" />
+            
+            <!-- Separator -->
+            <Rectangle fill="#D3D3D3" height="1.0" width="200.0" />
+            
+            <!-- Menu Options -->
+            <VBox alignment="CENTER_LEFT" spacing="0.0" styleClass="account-menu-options">
+                <children>
+                    <Label onMouseClicked="#handleChangePassword" styleClass="account-menu-item" text="Change password" />
+                    <Label onMouseClicked="#handleTranslate" styleClass="account-menu-item" text="Translate" />
+                </children>
+            </VBox>
+            
+            <!-- Separator -->
+            <Rectangle fill="#D3D3D3" height="1.0" width="200.0" />
+            
+            <!-- Logout Option -->
+            <Label onMouseClicked="#handleLogout" styleClass="account-menu-item account-logout" text="Logout" />
+        </children>
+    </VBox>
 </AnchorPane>

@@ -1,4 +1,4 @@
-Name: Pochacco
-DescriptionEnglish: Pochacco is a curious little guy who loves going for walks and eating banana ice cream. This sports-minded pup is a great basketball player and a not too shabby soccer goalie too!
-DescriptionSpanish: Pochacco es un perrito curioso al que le encanta pasear y comer helado de plátano. ¡Este cachorro deportista es un gran jugador de baloncesto y un portero de fútbol bastante bueno!
-Color: 6BC4E8
+nombre: Pochacco
+descripcionIngles: Pochacco is a curious little guy who loves going for walks and eating banana ice cream. This sports-minded pup is a great basketball player and a not too shabby soccer goalie too!
+descripcionEspanol: Pochacco es un perrito curioso al que le encanta pasear y comer helado de plátano. ¡Este cachorro deportista es un gran jugador de baloncesto y un portero de fútbol bastante bueno!
+color: 6BC4E8

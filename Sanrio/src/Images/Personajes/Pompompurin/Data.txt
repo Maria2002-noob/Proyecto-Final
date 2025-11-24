@@ -1,4 +1,4 @@
-Name: Pompompurin
-DescriptionEnglish: This boy golden retriever is unmistakable in his trademark brown beret. He has a laidback demeanor and loves the phrase 'let's go out!' He loves milk, anything soft, and his mama's cream caramel puddings. He has a talent for napping and doing 'purin aerobics', and can make friends with anyone. His dream is to get even bigger.
-DescriptionSpanish:Este golden retriever macho es inconfundible con su característica boina marrón. Tiene un carácter tranquilo y le encanta la frase "¡vamos a salir!". Le fascina la leche, todo lo blando y los pudines de caramelo de su dueña. Es un experto en siestas y en hacer "aeróbicos de puré", y se hace amigo de cualquiera. Su sueño es crecer aún más.
-Color: FFD100
+nombre: Pompompurin
+descripcionIngles: This boy golden retriever is unmistakable in his trademark brown beret. He has a laidback demeanor and loves the phrase 'let's go out!' He loves milk, anything soft, and his mama's cream caramel puddings. He has a talent for napping and doing 'purin aerobics', and can make friends with anyone. His dream is to get even bigger.
+descripcionEspanol:Este golden retriever macho es inconfundible con su característica boina marrón. Tiene un carácter tranquilo y le encanta la frase "¡vamos a salir!". Le fascina la leche, todo lo blando y los pudines de caramelo de su dueña. Es un experto en siestas y en hacer "aeróbicos de puré", y se hace amigo de cualquiera. Su sueño es crecer aún más.
+color: FFD100

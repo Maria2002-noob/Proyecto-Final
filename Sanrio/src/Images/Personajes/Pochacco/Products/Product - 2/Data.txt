@@ -1,5 +1,5 @@
-Name: Pochacco Plush Keychain
-Category: Plush, Keychain
-DescriptionEnglish: “I mess up when I rush! Oops! Wait! I can’t see! Oh, no! It’s stuck!” Funny phrases from our favorite sports-minded pup, Pochacco, in this endearing dress-up series. He’s one of the few Sanrio Characters who has many outfits in a variety of colors set to his mood. Popular and friendly, Pochacco’s curious spirit shines through with plush, accessories, bags, and even home items—you’ll want to collect it all!
-DescriptionSpanish: «¡Me equivoco cuando tengo prisa! ¡Uy! ¡Espera! ¡No veo! ¡Ay, no! ¡Se atascó!» Frases divertidas de nuestro perrito deportista favorito, Pochacco, en esta adorable colección de disfraces. Es uno de los pocos personajes de Sanrio que tiene muchos atuendos de diversos colores que reflejan su estado de ánimo. Popular y amigable, el espíritu curioso de Pochacco se refleja en peluches, accesorios, bolsos e incluso artículos para el hogar: ¡querrás coleccionarlos todos!
-Price: 29.00
+nombre: Pochacco Plush Keychain
+categoria: Plush, Keychain
+descripcionIngles: “I mess up when I rush! Oops! Wait! I can’t see! Oh, no! It’s stuck!” Funny phrases from our favorite sports-minded pup, Pochacco, in this endearing dress-up series. He’s one of the few Sanrio Characters who has many outfits in a variety of colors set to his mood. Popular and friendly, Pochacco’s curious spirit shines through with plush, accessories, bags, and even home items—you’ll want to collect it all!
+descripcionEspanol: «¡Me equivoco cuando tengo prisa! ¡Uy! ¡Espera! ¡No veo! ¡Ay, no! ¡Se atascó!» Frases divertidas de nuestro perrito deportista favorito, Pochacco, en esta adorable colección de disfraces. Es uno de los pocos personajes de Sanrio que tiene muchos atuendos de diversos colores que reflejan su estado de ánimo. Popular y amigable, el espíritu curioso de Pochacco se refleja en peluches, accesorios, bolsos e incluso artículos para el hogar: ¡querrás coleccionarlos todos!
+precio: 29.00

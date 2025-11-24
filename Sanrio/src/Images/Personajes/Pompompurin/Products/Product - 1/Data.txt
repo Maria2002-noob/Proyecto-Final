@@ -1,5 +1,5 @@
-Name: Pompompurin Plush Keychain
-Category: Plush, Keychain
-DescriptionEnglish: This fun design series captures the essence of summer festivals, a highlight of the Japanese vacation season. These plush mascot keychains feature colorful character motifs with yukatas and masks, making it a supercute accessory to add to a bag or tote!
-DescriptionSpanish: Esta divertida colección captura la esencia de los festivales de verano, uno de los eventos más destacados de las vacaciones japonesas. Estos llaveros de peluche con forma de mascota presentan coloridos personajes con yukatas y máscaras, ¡lo que los convierte en un accesorio súper tierno para añadir a un bolso o mochila!
-Price: 26.00
+nombre: Pompompurin Plush Keychain
+categoria: Plush, Keychain
+descripcionIngles: This fun design series captures the essence of summer festivals, a highlight of the Japanese vacation season. These plush mascot keychains feature colorful character motifs with yukatas and masks, making it a supercute accessory to add to a bag or tote!
+descripcionEspanol: Esta divertida colección captura la esencia de los festivales de verano, uno de los eventos más destacados de las vacaciones japonesas. Estos llaveros de peluche con forma de mascota presentan coloridos personajes con yukatas y máscaras, ¡lo que los convierte en un accesorio súper tierno para añadir a un bolso o mochila!
+precio: 26.00

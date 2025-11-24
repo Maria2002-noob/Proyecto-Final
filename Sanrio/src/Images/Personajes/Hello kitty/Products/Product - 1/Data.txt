@@ -1,5 +1,5 @@
-Name: Playful Pink Die-Cut Welsy Planner
-Category: Notebook
-DescriptionEnglish: With Hello Kitty at your side, all things are possible! This adorable Hello Kitty-shaped planner (August 2025 to December 2026) is filled with delightful illustrations that make scheduling appointments, meetings, birthdays, and other important events a truly enjoyable experience.
-DescriptionSpanish: ¡Con Hello Kitty a tu lado, todo es posible! Esta adorable agenda con forma de Hello Kitty (de agosto de 2025 a diciembre de 2026) está llena de encantadoras ilustraciones que hacen que programar citas, reuniones, cumpleaños y otros eventos importantes sea una experiencia realmente agradable.
-Price: 10.79
+nombre: Playful Pink Die-Cut Welsy Planner
+categoria: Notebook
+descripcionIngles: With Hello Kitty at your side, all things are possible! This adorable Hello Kitty-shaped planner (August 2025 to December 2026) is filled with delightful illustrations that make scheduling appointments, meetings, birthdays, and other important events a truly enjoyable experience.
+descripcionEspanol: ¡Con Hello Kitty a tu lado, todo es posible! Esta adorable agenda con forma de Hello Kitty (de agosto de 2025 a diciembre de 2026) está llena de encantadoras ilustraciones que hacen que programar citas, reuniones, cumpleaños y otros eventos importantes sea una experiencia realmente agradable.
+precio: 10.79

@@ -1,5 +1,5 @@
-Name: 
-Category:
-DescriptionEnglish:
-DescriptionSpanish:
-Price:
+nombre: 
+categoria:
+descripcionIngles:
+descripcionEspanol:
+precio:

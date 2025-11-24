@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" fx:id="root" prefHeight="800.0" prefWidth="1404.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Controller_Login_and_Signing">
+<AnchorPane id="AnchorPane" fx:id="root" prefHeight="800.0" prefWidth="1404.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Controller_Login_and_Signing">
     <stylesheets>
         <URL value="@../Styles/Styles.css" />
     </stylesheets>
@@ -67,8 +67,8 @@
               <!-- Login Form Container - Centered in middle area -->
               <StackPane id="loginFormStackPane" alignment="CENTER" prefHeight="275.0" prefWidth="700.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                   <VBox id="loginFormContainer" alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="548.0" spacing="15.0">
-                      <TextField id="userTextField" prefHeight="40.0" prefWidth="300.0" promptText="User" styleClass="login-text-field" />
-                      <PasswordField id="passwordTextField" prefHeight="40.0" prefWidth="300.0" promptText="Password" styleClass="login-text-field" />
+                      <TextField id="userTextField" fx:id="userTextField" prefHeight="40.0" prefWidth="300.0" promptText="Correo" styleClass="login-text-field" />
+                      <PasswordField id="passwordTextField" fx:id="passwordTextField" prefHeight="40.0" prefWidth="300.0" promptText="Contraseña" styleClass="login-text-field" />
                       <Button id="loginButton" minWidth="250.0" onAction="#handleLogin" prefHeight="50.0" prefWidth="260.0" styleClass="login-button" text="Login" />
                       <Label id="signInLabel" fx:id="signInLabel" onMouseClicked="#handleToggleView" styleClass="sign-in-label" text="Sign in" />
                   </VBox>
@@ -140,11 +140,11 @@
                  <!-- Registration Form Container - Centered in middle area -->
                  <StackPane id="registerFormStackPane" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <VBox id="registerFormContainer" alignment="CENTER" fillWidth="false" spacing="15.0">
-                         <TextField id="nombreTextField" prefHeight="40.0" prefWidth="300.0" promptText="Nombre" styleClass="login-text-field" />
-                         <TextField id="identificacionTextField" prefHeight="40.0" prefWidth="300.0" promptText="Identificación" styleClass="login-text-field" />
-                         <TextField id="correoTextField" prefHeight="40.0" prefWidth="300.0" promptText="Correo" styleClass="login-text-field" />
-                         <PasswordField id="passwordRegisterTextField" prefHeight="40.0" prefWidth="300.0" promptText="Contraseña" styleClass="login-text-field" />
-                         <PasswordField id="confirmPasswordTextField" prefHeight="40.0" prefWidth="300.0" promptText="Contraseña" styleClass="login-text-field" />
+                         <TextField id="nombreTextField" fx:id="nombreTextField" prefHeight="40.0" prefWidth="300.0" promptText="Nombre" styleClass="login-text-field" />
+                         <TextField id="identificacionTextField" fx:id="identificacionTextField" prefHeight="40.0" prefWidth="300.0" promptText="Identificación" styleClass="login-text-field" />
+                         <TextField id="correoTextField" fx:id="correoTextField" prefHeight="40.0" prefWidth="300.0" promptText="Correo" styleClass="login-text-field" />
+                         <PasswordField id="passwordRegisterTextField" fx:id="passwordRegisterTextField" prefHeight="40.0" prefWidth="300.0" promptText="Contraseña" styleClass="login-text-field" />
+                         <PasswordField id="confirmPasswordTextField" fx:id="confirmPasswordTextField" prefHeight="40.0" prefWidth="300.0" promptText="Contraseña" styleClass="login-text-field" />
                          <HBox alignment="CENTER" spacing="15.0">
                              <Button id="cancelButton" minWidth="120.0" onAction="#handleCancel" prefHeight="40.0" prefWidth="140.0" styleClass="cancel-button" text="Cancelar" />
                              <Button id="acceptButton" minWidth="120.0" onAction="#handleAccept" prefHeight="40.0" prefWidth="140.0" styleClass="login-button" text="Aceptar" />

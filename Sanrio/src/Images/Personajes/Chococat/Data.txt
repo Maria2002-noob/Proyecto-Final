@@ -1,4 +1,4 @@
-Name: Chococat
-DescriptionEnglish: Chococat tends to be a little scatterbrained at times, but he is always up on the latest news, thanks to his ultrasensitive “antenna” whiskers! He takes his name from his chocolate-colored nose. Chococat has fun playing with his friend Cookie-Bau the dog, Nutz the hamster, Jellybean the bunny, and the Duckies!
-DescriptionSpanish:Chococat a veces es un poco despistado, pero siempre está al tanto de las últimas noticias gracias a sus bigotes "antenas" ultrasensibles. Su nombre proviene de su nariz color chocolate. Chococat se divierte jugando con su amigo Cookie-Bau, el perro; Nutz, el hámster; Jellybean, el conejo; y los patitos.
-Color: 65B2E8
+nombre: Chococat
+descripcionIngles: Chococat tends to be a little scatterbrained at times, but he is always up on the latest news, thanks to his ultrasensitive “antenna” whiskers! He takes his name from his chocolate-colored nose. Chococat has fun playing with his friend Cookie-Bau the dog, Nutz the hamster, Jellybean the bunny, and the Duckies!
+descripcionEspanol:Chococat a veces es un poco despistado, pero siempre está al tanto de las últimas noticias gracias a sus bigotes "antenas" ultrasensibles. Su nombre proviene de su nariz color chocolate. Chococat se divierte jugando con su amigo Cookie-Bau, el perro; Nutz, el hámster; Jellybean, el conejo; y los patitos.
+color: 65B2E8

@@ -1,5 +1,5 @@
-Name: My Melody Tote Bag 
-Category: Tote Bag
-DescriptionEnglish: A nostalgic feel of quilted goods featuring your favorite Sanrio Characters! These supercute quilted bags and charms are the sweetest addition to your everyday wear!
-DescriptionSpanish: ¡Un toque nostálgico con artículos acolchados que presentan a tus personajes favoritos de Sanrio! ¡Estos adorables bolsos y colgantes acolchados son el complemento perfecto para tu día a día!
-Price: 18.00
+nombre: My Melody Tote Bag 
+categoria: Tote Bag
+descripcionIngles: A nostalgic feel of quilted goods featuring your favorite Sanrio Characters! These supercute quilted bags and charms are the sweetest addition to your everyday wear!
+descripcionEspanol: ¡Un toque nostálgico con artículos acolchados que presentan a tus personajes favoritos de Sanrio! ¡Estos adorables bolsos y colgantes acolchados son el complemento perfecto para tu día a día!
+precio: 18.00

@@ -1,4 +1,4 @@
-Name: Hello Kitty
-DescriptionEnglish: Hello Kitty was born in the suburbs of London. She lives with her parents and her twin sister Mimmy who is her best friend. Her hobbies include baking cookies and making new friends. As she always says, "you can never have too many friends!"
-DescriptionSpanish: Hello Kitty nació en las afueras de Londres. Vive con sus padres y su hermana gemela Mimmy, que es su mejor amiga. Entre sus aficiones se encuentran hornear galletas y hacer nuevos amigos. Como siempre dice: "¡Nunca se tienen demasiados amigos!"
-Color: EA0029
+nombre: Hello Kitty
+descripcionIngles: Hello Kitty was born in the suburbs of London. She lives with her parents and her twin sister Mimmy who is her best friend. Her hobbies include baking cookies and making new friends. As she always says, "you can never have too many friends!"
+descripcionEspanol: Hello Kitty nació en las afueras de Londres. Vive con sus padres y su hermana gemela Mimmy, que es su mejor amiga. Entre sus aficiones se encuentran hornear galletas y hacer nuevos amigos. Como siempre dice: "¡Nunca se tienen demasiados amigos!"
+color: EA0029
