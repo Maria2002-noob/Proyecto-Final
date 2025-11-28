@@ -16,14 +16,14 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
@@ -81,8 +81,7 @@ public class Controller_Catalog_Section implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         administrador = Administrador_Singleton.getAdministrador();
-                
-        // Asegurar que los datos estén cargados
+                        
         if (administrador.getLista_personajes().getCabeza() == null) {
             System.out.println("Inicializando datos...");
             administrador.inicializarDatos();
@@ -90,12 +89,10 @@ public class Controller_Catalog_Section implements Initializable {
         
         listaPersonajes = administrador.getLista_personajes();
         listaProductos = administrador.getLista_productos();
-        
-        // Verificar carga de personajes
+                
         ObservableList<Nodo_Personaje> personajesTest = listaPersonajes.getPersonajes();
         System.out.println("Personajes cargados: " + personajesTest.size());
-        
-        // Verificar carga de productos
+                
         todosLosProductos = listaProductos.getProductos();
         System.out.println("Productos en lista: " + todosLosProductos.size());
         
@@ -107,8 +104,7 @@ public class Controller_Catalog_Section implements Initializable {
                 
         productosFiltrados = new ArrayList<>(todosLosProductos);
         System.out.println("Productos filtrados iniciales: " + productosFiltrados.size());
-        
-        // Asegurar que el FlowPane sea visible
+                
         if (productsFlowPane != null) {
             productsFlowPane.setVisible(true);
             productsFlowPane.setManaged(true);
