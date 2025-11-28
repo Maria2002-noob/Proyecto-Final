@@ -170,7 +170,7 @@ public class Controller_Login_and_Signing implements Initializable {
     private void mostrarMensajeAdminMode() {
         Platform.runLater(() -> {
             mostrarAlerta(Alert.AlertType.INFORMATION, "Modo Administrador Activado", 
-                "¡Se ha activado el registro de administrador!\n" +
+                "¡Se ha activado el registro de administrador\n" +
                 "Tienes 10 segundos para completar tu registro como administrador.");
         });
     }
