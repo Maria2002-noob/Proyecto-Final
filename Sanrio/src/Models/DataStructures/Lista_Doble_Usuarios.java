@@ -95,7 +95,7 @@ public class Lista_Doble_Usuarios {
         try {
 
             if (buscar != null) {
-                mostrarAlerta(Alert.AlertType.WARNING, "Importante..!", "Ya existe un usuario con este correo.");
+                mostrarAlerta(Alert.AlertType.WARNING, "Importante!", "Ya existe un usuario con este correo.");
                 return null;
             } else {
                 Usuario usuario = new Usuario(txtNombre.getText(), Integer.parseInt(txtIdentificacion.getText()), txtCorreo.getText(), txtContrasena.getText(), roll);
