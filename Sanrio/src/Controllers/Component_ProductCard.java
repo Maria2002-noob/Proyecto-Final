@@ -1,6 +1,7 @@
 package Controllers;
 
 import Models.DataStructures.Administrador_Singleton;
+import Models.DataStructures.LanguageManager;
 import Models.Nodo_Producto;
 import Models.Producto;
 import java.io.File;
@@ -14,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 public class Component_ProductCard {
@@ -35,16 +37,37 @@ public class Component_ProductCard {
     
     private Nodo_Producto nodoProducto;
     private Runnable onAddToBag;
+    private LanguageManager languageManager;
     
     private boolean inicializado = false;
+    private Image primeraImagen;
+    private Image segundaImagen;
+    private String baseImagePath;
+    private String productNum;
     
-    @FXML
     public void initialize() {
         inicializado = true;
-        
-        // Si ya tenemos un producto asignado, cargar sus datos ahora que los campos están inicializados
+        languageManager = LanguageManager.getInstance();
+                
+        actualizarTextoBoton();
+                
         if (nodoProducto != null) {
             actualizarDatosProducto();
+        }
+    }
+    
+    private void actualizarTextoBoton() {
+        if (addToBagButton != null && languageManager != null) {
+            addToBagButton.setText(languageManager.getString("button.add.to.bag"));
+        }
+    }
+    
+    public void actualizarPrecio() {
+        if (nodoProducto != null && nodoProducto.getProducto() != null && productPriceLabel != null) {
+            if (languageManager == null) {
+                languageManager = LanguageManager.getInstance();
+            }
+            productPriceLabel.setText(languageManager.formatPrice(nodoProducto.getProducto().getPrecio()));
         }
     }
     
@@ -64,11 +87,15 @@ public class Component_ProductCard {
             }
             
             if (productPriceLabel != null) {
-                productPriceLabel.setText(String.format("$%.2f", producto.getPrecio()));
+                if (languageManager == null) {
+                    languageManager = LanguageManager.getInstance();
+                }
+                productPriceLabel.setText(languageManager.formatPrice(producto.getPrecio()));
             }
             
             if (productImageView != null) {
                 loadProductImage(producto);
+                configurarHoverImagen();
             }
         }
     }
@@ -94,21 +121,19 @@ public class Component_ProductCard {
             
             String personajeNombre = producto.getPersonaje().getNombre();
             String identificacion = producto.getIdentificacion();
-            
-            // Extraer el número del producto del ID (formato: "nombrePersonaje-X")
+                        
             if (!identificacion.contains("-")) {
                 System.out.println("Error: Formato de identificación inválido: " + identificacion);
                 return;
             }
             
-            String productNum = identificacion.substring(identificacion.lastIndexOf("-") + 1);
+            productNum = identificacion.substring(identificacion.lastIndexOf("-") + 1);
             String characterDirName = getCharacterDirectoryName(personajeNombre);
             
-            String baseImagePath = System.getProperty("user.dir") + "\\src\\Images\\Personajes\\" + 
-                                   characterDirName + "\\Products\\Product - " + productNum + "\\";
-            
-            // Lista de posibles nombres de archivo de imagen
-            String[] imageNames = {
+            baseImagePath = System.getProperty("user.dir") + "\\src\\Images\\Personajes\\" + 
+                           characterDirName + "\\Products\\Product - " + productNum + "\\";
+                        
+            primeraImagen = loadImageByNames(new String[]{
                 "001-Product-" + productNum + ".jpg",
                 "001-Product-" + productNum + ".JPG",
                 "001-Product-" + productNum + ".jpeg",
@@ -117,28 +142,23 @@ public class Component_ProductCard {
                 "001.jpg",
                 "001.JPG",
                 "001.png"
-            };
-            
-            boolean found = false;
-            for (String imageName : imageNames) {
-                String imagePath = baseImagePath + imageName;
-                File imageFile = new File(imagePath);
-                if (imageFile.exists() && imageFile.isFile()) {
-                    try {
-                        Image image = new Image(imageFile.toURI().toString());
-                        if (productImageView != null) {
-                            productImageView.setImage(image);
-                            found = true;
-                            break;
-                        }
-                    } catch (Exception e) {
-                        System.out.println("Error al cargar imagen " + imagePath + ": " + e.getMessage());
-                    }
-                }
-            }
-            
-            if (!found) {
-                System.out.println("Imagen no encontrada para producto: " + producto.getNombre() + 
+            });
+                        
+            segundaImagen = loadImageByNames(new String[]{
+                "002-Product-" + productNum + ".jpg",
+                "002-Product-" + productNum + ".JPG",
+                "002-Product-" + productNum + ".jpeg",
+                "002-Product-" + productNum + ".png",
+                "Product-" + productNum + "-2.jpg",
+                "002.jpg",
+                "002.JPG",
+                "002.png"
+            });
+                        
+            if (primeraImagen != null && productImageView != null) {
+                productImageView.setImage(primeraImagen);
+            } else {
+                System.out.println("Primera imagen no encontrada para producto: " + producto.getNombre() + 
                                  " (Ruta buscada: " + baseImagePath + ")");
             }
         } catch (Exception e) {
@@ -146,6 +166,41 @@ public class Component_ProductCard {
                              (producto != null ? producto.getNombre() : "desconocido") + ": " + e.getMessage());
             e.printStackTrace();
         }
+    }
+    
+    private Image loadImageByNames(String[] imageNames) {
+        for (String imageName : imageNames) {
+            String imagePath = baseImagePath + imageName;
+            File imageFile = new File(imagePath);
+            if (imageFile.exists() && imageFile.isFile()) {
+                try {
+                    return new Image(imageFile.toURI().toString());
+                } catch (Exception e) {
+                    System.out.println("Error al cargar imagen " + imagePath + ": " + e.getMessage());
+                }
+            }
+        }
+        return null;
+    }
+    
+    private void configurarHoverImagen() {
+        if (rootPane == null || productImageView == null) {
+            return;
+        }
+                
+        final Image imagenDefault = primeraImagen;
+                
+        rootPane.setOnMouseEntered((MouseEvent e) -> {
+            if (segundaImagen != null && productImageView != null) {
+                productImageView.setImage(segundaImagen);
+            }
+        });
+                
+        rootPane.setOnMouseExited((MouseEvent e) -> {
+            if (imagenDefault != null && productImageView != null) {
+                productImageView.setImage(imagenDefault);
+            }
+        });
     }
     
     private String getCharacterDirectoryName(String nombrePersonaje) {
@@ -171,9 +226,7 @@ public class Component_ProductCard {
                     "Debes iniciar sesión para agregar productos al carrito.");
                 return;
             }
-            
-            // Aquí se agregará la lógica para agregar al carrito
-            // Por ahora solo notificamos
+                        
             if (onAddToBag != null) {
                 onAddToBag.run();
             } else {
@@ -199,11 +252,10 @@ public class Component_ProductCard {
             }
             
             FXMLLoader loader = new FXMLLoader(Component_ProductCard.class.getResource("/Views/Components/ProductCard.fxml"));
-            Node root = loader.load();
+            loader.load();
             Component_ProductCard controller = loader.getController();
             
-            if (controller != null) {
-                // Establecer el producto después de que el FXML esté completamente cargado
+            if (controller != null) {                
                 controller.setProducto(nodoProducto);
                 return controller;
             } else {

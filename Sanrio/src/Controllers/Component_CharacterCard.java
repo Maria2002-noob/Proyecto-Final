@@ -3,6 +3,7 @@ package Controllers;
 import Models.Nodo_Personaje;
 import Models.Personaje;
 import java.io.File;
+import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -61,8 +62,7 @@ public class Component_CharacterCard {
     }
     
     private void loadCharacterImage(String nombrePersonaje) {
-        try {
-            // Mapear nombres a nombres de archivo
+        try {            
             String imageFileName = getImageFileName(nombrePersonaje);
             String imagePath = System.getProperty("user.dir") + "\\src\\Images\\Personajes\\" + 
                                getCharacterDirectoryName(nombrePersonaje) + "\\" + imageFileName;
@@ -79,8 +79,7 @@ public class Component_CharacterCard {
         }
     }
     
-    private String getImageFileName(String nombrePersonaje) {
-        // Mapear nombres de personajes a nombres de archivo de logo
+    private String getImageFileName(String nombrePersonaje) {        
         switch (nombrePersonaje) {
             case "Hello Kitty":
                 return "Kitty_Logo.jpg";
@@ -107,8 +106,7 @@ public class Component_CharacterCard {
         }
     }
     
-    private String getCharacterDirectoryName(String nombrePersonaje) {
-        // Mapear nombres de personajes a nombres de directorio
+    private String getCharacterDirectoryName(String nombrePersonaje) {        
         switch (nombrePersonaje) {
             case "Hello Kitty":
                 return "Hello kitty";
@@ -125,21 +123,17 @@ public class Component_CharacterCard {
     
     private void applyBackgroundColor(String colorHex) {
         if (colorHex != null && !colorHex.isEmpty() && backgroundPane != null) {
-            try {
-                // Crear patrón de puntos (polka dots) usando CSS
+            try {                
                 String backgroundColor = "#" + colorHex;
-                Color baseColor = Color.web(backgroundColor);
-                // Usar un color más claro para el fondo con puntos
-                String lighterColor = "#" + colorHex + "80"; // Con transparencia
+                Color baseColor = Color.web(backgroundColor);                
+                String lighterColor = "#" + colorHex + "80";
                 
                 backgroundPane.setStyle(
                     "-fx-background-color: " + backgroundColor + ";" +
                     "-fx-background-radius: 75px;" +
                     "-fx-border-radius: 75px;"
                 );
-                
-                // Agregar patrón de puntos usando un patrón repetitivo
-                // Esto se puede mejorar con un patrón SVG, pero por ahora usamos un color sólido
+                                
             } catch (Exception e) {
                 System.out.println("Error al aplicar color de fondo: " + e.getMessage());
             }
@@ -159,11 +153,11 @@ public class Component_CharacterCard {
     public static Component_CharacterCard create(Nodo_Personaje nodoPersonaje) {
         try {
             FXMLLoader loader = new FXMLLoader(Component_CharacterCard.class.getResource("/Views/Components/CharacterCard.fxml"));
-            Node root = loader.load();
+            loader.load();
             Component_CharacterCard controller = loader.getController();
             controller.setPersonaje(nodoPersonaje);
             return controller;
-        } catch (Exception e) {
+        } catch (IOException e) {
             System.out.println("Error al crear CharacterCard: " + e.getMessage());
             return null;
         }

@@ -37,7 +37,7 @@
                         </VBox>
             
                         <!-- Botón Agregar al carrito -->
-                        <Button fx:id="addToBagButton" mnemonicParsing="false" onAction="#handleAddToBag" prefHeight="30.0" prefWidth="180.0" styleClass="add-to-bag-button" text="ADD TO BAG" />
+                        <Button fx:id="addToBagButton" id="addToBagButton" mnemonicParsing="false" onAction="#handleAddToBag" prefHeight="30.0" prefWidth="180.0" styleClass="add-to-bag-button" text="ADD TO BAG" />
                     </children>
                 </VBox>
             </children>
