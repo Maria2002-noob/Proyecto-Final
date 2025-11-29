@@ -18,7 +18,7 @@
     
     <!-- Header Section -->
     <AnchorPane id="headerPane" fx:id="headerPane" prefHeight="80.0" styleClass="header-pane" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <HBox alignment="CENTER_LEFT" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="0.0">
+        <HBox alignment="CENTER_LEFT" spacing="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="0.0">
             <HBox fx:id="purchaseHistoryBox" alignment="CENTER" onMouseClicked="#handlePurchaseHistory" spacing="5.0" styleClass="nav-item" visible="false">
                 <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -64,16 +64,29 @@
     <!-- Main Content Area -->
     <ScrollPane fx:id="mainScrollPane" fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="NEVER" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
         <content>
-            <VBox fx:id="mainContent" spacing="30.0" styleClass="main-content">
+            <VBox fx:id="mainContent" alignment="TOP_CENTER" fillWidth="false" spacing="30.0" styleClass="main-content">
                 <!-- Characters Section -->
-                <VBox alignment="CENTER" spacing="20.0" styleClass="characters-section">
+                <VBox fx:id="charactersSection" alignment="CENTER" prefHeight="132.0" prefWidth="1100.0" spacing="20.0" styleClass="characters-section">
                     <Label styleClass="section-title" text="WHO'S YOUR FAVORITE?" />
                     <FlowPane fx:id="charactersFlowPane" alignment="CENTER" hgap="20.0" styleClass="characters-flowpane" vgap="20.0" />
                 </VBox>
                 
+                <!-- Character Info Section (shown when filtering) -->
+                <AnchorPane fx:id="characterInfoPane" maxWidth="1000.0" minWidth="600.0" prefHeight="200.0" prefWidth="900.0" styleClass="character-info-pane" visible="false">
+                    <children>
+                        <VBox alignment="TOP_LEFT" spacing="10.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="25.0">
+                            <children>
+                                <Label fx:id="characterNameLabel" styleClass="character-name-label" text="Character Name" />
+                                <Label fx:id="characterDescriptionLabel" styleClass="character-description-label" text="Character description will appear here..." wrapText="true" />
+                            </children>
+                        </VBox>
+                        <ImageView fx:id="characterPersonajeImageView" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" styleClass="character-personaje-image" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="30.0" />
+                    </children>
+                </AnchorPane>
+                
                 <!-- Products Section -->
                 <VBox alignment="CENTER_LEFT" spacing="20.0" styleClass="products-section">
-                    <FlowPane fx:id="productsFlowPane" alignment="CENTER" hgap="15.0" styleClass="products-flowpane" vgap="20.0" />
+                    <FlowPane fx:id="productsFlowPane" alignment="CENTER" hgap="30.0" styleClass="products-flowpane" vgap="20.0" />
                 </VBox>
             </VBox>
         </content>
@@ -89,7 +102,7 @@
     </AnchorPane>
     
     <!-- Account Dropdown Menu -->
-    <VBox fx:id="accountDropdownMenu" alignment="TOP_CENTER" layoutX="1150.0" layoutY="80.0" prefHeight="150.0" prefWidth="200.0" styleClass="account-dropdown" visible="false">
+    <VBox fx:id="accountDropdownMenu" alignment="TOP_CENTER" layoutX="1070.0" layoutY="80.0" prefHeight="200.0" prefWidth="250.0" styleClass="account-dropdown" visible="false">
         <children>
             <!-- Email Display -->
             <Label fx:id="userEmailLabel" styleClass="account-email" text="example@gmail.com" />
@@ -100,8 +113,8 @@
             <!-- Menu Options -->
             <VBox alignment="CENTER_LEFT" spacing="0.0" styleClass="account-menu-options">
                 <children>
-                    <Label onMouseClicked="#handleChangePassword" styleClass="account-menu-item" text="Change password" />
-                    <Label onMouseClicked="#handleTranslate" styleClass="account-menu-item" text="Translate" />
+                    <Label fx:id="changePasswordLabel" onMouseClicked="#handleChangePassword" styleClass="account-menu-item" text="Change password" />
+                    <Label fx:id="translateLabel" onMouseClicked="#handleTranslate" styleClass="account-menu-item" text="Translate" />
                 </children>
             </VBox>
             
@@ -109,7 +122,7 @@
             <Rectangle fill="#D3D3D3" height="1.0" width="200.0" />
             
             <!-- Logout Option -->
-            <Label onMouseClicked="#handleLogout" styleClass="account-menu-item account-logout" text="Logout" />
+            <Label fx:id="logoutLabel" onMouseClicked="#handleLogout" styleClass="account-menu-item account-logout" text="Logout" />
         </children>
     </VBox>
 </AnchorPane>

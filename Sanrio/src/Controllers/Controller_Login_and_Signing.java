@@ -1,44 +1,28 @@
 package Controllers;
 
-import Models.DataStructures.Administrador_Singleton;
-import Models.DataStructures.Lista_Doble_Personajes;
-import Models.DataStructures.Lista_Doble_Productos;
-import Models.DataStructures.Lista_Doble_Usuarios;
-import Models.DataStructures.Pila_Stack_De_Productos;
+import Models.DataStructures.*;
 import Models.Nodo_Usuario;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
+import javafx.animation.*;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
+import javafx.fxml.*;
+import javafx.scene.*;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.*;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class Controller_Login_and_Signing implements Initializable {
 
-    private Lista_Doble_Usuarios Lista_Usuarios = Administrador_Singleton.getAdministrador().getLista_usuarios();
-    private Lista_Doble_Personajes Lista_Personajes = Administrador_Singleton.getAdministrador().getLista_personajes();
-    private Lista_Doble_Productos Lista_Productos = Administrador_Singleton.getAdministrador().getLista_productos();    
-    private Pila_Stack_De_Productos pilas_producto = Administrador_Singleton.getAdministrador().getPila_productos();
+    private final Lista_Doble_Usuarios Lista_Usuarios = Administrador_Singleton.getAdministrador().getLista_usuarios();    
+    private final LanguageManager languageManager = LanguageManager.getInstance();
         
     private int clicksHelloKitty = 0;
     private int clicksCinnamoroll = 0;
@@ -94,11 +78,19 @@ public class Controller_Login_and_Signing implements Initializable {
     @FXML
     private StackPane viewContainer;
     @FXML
-    private Label signInLabel;    
-
+    private Label signInLabel;
+    @FXML
+    private javafx.scene.control.Button loginButton;
+    @FXML
+    private javafx.scene.control.Button acceptButton;
+    @FXML
+    private javafx.scene.control.Button cancelButton;
+    
     @Override
-    public void initialize(URL url, ResourceBundle rb) {        
-        Lista_Usuarios.cargarDesdeArchivoDeTexto();                
+    public void initialize(URL url, ResourceBundle rb) {
+        Lista_Usuarios.cargarDesdeArchivoDeTexto();
+        
+        actualizarTextos();
         
         applyCircularClip(kuromiImageView);
         applyCircularClip(chococatImageView);
@@ -140,6 +132,42 @@ public class Controller_Login_and_Signing implements Initializable {
             signInLabel.setStyle("-fx-cursor: hand;");
         }
     }
+    
+    private void actualizarTextos() {
+        if (userTextField != null) {
+            userTextField.setPromptText(languageManager.getString("login.email"));
+        }
+        if (passwordTextField != null) {
+            passwordTextField.setPromptText(languageManager.getString("login.password"));
+        }
+        if (loginButton != null) {
+            loginButton.setText(languageManager.getString("login.button"));
+        }
+        if (signInLabel != null) {
+            signInLabel.setText(languageManager.getString("login.sign.in"));
+        }
+        if (nombreTextField != null) {
+            nombreTextField.setPromptText(languageManager.getString("register.name"));
+        }
+        if (identificacionTextField != null) {
+            identificacionTextField.setPromptText(languageManager.getString("register.id"));
+        }
+        if (correoTextField != null) {
+            correoTextField.setPromptText(languageManager.getString("register.email"));
+        }
+        if (passwordRegisterTextField != null) {
+            passwordRegisterTextField.setPromptText(languageManager.getString("register.password"));
+        }
+        if (confirmPasswordTextField != null) {
+            confirmPasswordTextField.setPromptText(languageManager.getString("register.confirm.password"));
+        }
+        if (acceptButton != null) {
+            acceptButton.setText(languageManager.getString("register.accept"));
+        }
+        if (cancelButton != null) {
+            cancelButton.setText(languageManager.getString("register.cancel"));
+        }
+    }
         
     private void handleHelloKittyClick(MouseEvent event) {
         clicksHelloKitty++;
@@ -169,9 +197,9 @@ public class Controller_Login_and_Signing implements Initializable {
     
     private void mostrarMensajeAdminMode() {
         Platform.runLater(() -> {
-            mostrarAlerta(Alert.AlertType.INFORMATION, "Modo Administrador Activado", 
-                "¡Se ha activado el registro de administrador\n" +
-                "Tienes 10 segundos para completar tu registro como administrador.");
+            mostrarAlerta(Alert.AlertType.INFORMATION, 
+                languageManager.getString("admin.mode.activated"), 
+                languageManager.getString("admin.mode.message"));
         });
     }
     
@@ -185,9 +213,9 @@ public class Controller_Login_and_Signing implements Initializable {
                 adminModeActivado = false;
                 resetClickCounters();
                 Platform.runLater(() -> {
-                    mostrarAlerta(Alert.AlertType.WARNING, "Tiempo Agotado", 
-                        "El tiempo para registrar un administrador ha expirado.\n" +
-                        "Vuelve a activar el modo administrador si deseas intentarlo de nuevo.");
+                    mostrarAlerta(Alert.AlertType.WARNING, 
+                        languageManager.getString("admin.mode.timeout"), 
+                        languageManager.getString("admin.mode.timeout.message"));
                 });
             }
         }));
@@ -253,14 +281,16 @@ public class Controller_Login_and_Signing implements Initializable {
             passwordRegisterTextField.getText().trim().isEmpty() ||
             confirmPasswordTextField.getText().trim().isEmpty()) {
             
-            mostrarAlerta(Alert.AlertType.WARNING, "Campos incompletos", 
-                "Por favor, complete todos los campos.");
+            mostrarAlerta(Alert.AlertType.WARNING, 
+                languageManager.getString("alert.fields.incomplete"), 
+                languageManager.getString("alert.please.complete"));
             return;
         }
                 
         if (!validarCorreo(correoTextField.getText().trim())) {
-            mostrarAlerta(Alert.AlertType.WARNING, "Correo inválido", 
-                "Por favor, ingrese un correo electrónico válido.");
+            mostrarAlerta(Alert.AlertType.WARNING, 
+                languageManager.getString("alert.invalid.email"), 
+                languageManager.getString("alert.please.valid.email"));
             return;
         }
                 
@@ -271,8 +301,9 @@ public class Controller_Login_and_Signing implements Initializable {
                 throw new NumberFormatException();
             }
         } catch (NumberFormatException e) {
-            mostrarAlerta(Alert.AlertType.WARNING, "Identificación inválida", 
-                "La identificación debe ser un número entero positivo.");
+            mostrarAlerta(Alert.AlertType.WARNING, 
+                languageManager.getString("alert.invalid.id"), 
+                languageManager.getString("alert.id.must.positive"));
             return;
         }
         
@@ -280,22 +311,25 @@ public class Controller_Login_and_Signing implements Initializable {
         String confirmPassword = confirmPasswordTextField.getText().trim();
         
         if (!password.equals(confirmPassword)) {
-            mostrarAlerta(Alert.AlertType.WARNING, "Contraseñas no coinciden", 
-                "Las contraseñas ingresadas no coinciden. Por favor, verifique.");
+            mostrarAlerta(Alert.AlertType.WARNING, 
+                languageManager.getString("alert.passwords.no.match"), 
+                languageManager.getString("alert.passwords.verify"));
             return;
         }
                 
         if (password.length() < 6) {
-            mostrarAlerta(Alert.AlertType.WARNING, "Contraseña muy corta", 
-                "La contraseña debe tener al menos 6 caracteres.");
+            mostrarAlerta(Alert.AlertType.WARNING, 
+                languageManager.getString("alert.password.too.short"), 
+                languageManager.getString("alert.password.min.length"));
             return;
         }
                 
         String roll = adminModeActivado ? "administrador" : "cliente";
                 
         if (Lista_Usuarios.buscarCorreo(correoTextField.getText().trim()) != null) {
-            mostrarAlerta(Alert.AlertType.WARNING, "Correo ya registrado", 
-                "Ya existe un usuario con este correo electrónico.");
+            mostrarAlerta(Alert.AlertType.WARNING, 
+                languageManager.getString("alert.email.registered"), 
+                languageManager.getString("alert.email.exists"));
             return;
         }
                 
@@ -319,17 +353,19 @@ public class Controller_Login_and_Signing implements Initializable {
             resetClickCounters();
                         
             String mensaje = roll.equals("administrador") 
-                ? "¡Felicidades! Te has registrado como administrador."
-                : "¡Felicidades! Ya haces parte de nuestros usuarios :)";
+                ? languageManager.getString("alert.register.admin")
+                : languageManager.getString("alert.register.client");
             
-            mostrarAlerta(Alert.AlertType.INFORMATION, "Registro exitoso", 
-                "Registro realizado con éxito.\n" + mensaje);
+            mostrarAlerta(Alert.AlertType.INFORMATION, 
+                languageManager.getString("alert.register.success"), 
+                languageManager.getString("alert.register.done") + "\n" + mensaje);
                         
             mostrarVistaLogin();
             
         } catch (Exception e) {
-            mostrarAlerta(Alert.AlertType.ERROR, "Error en el registro", 
-                "Ocurrió un error al registrar el usuario: " + e.getMessage());
+            mostrarAlerta(Alert.AlertType.ERROR, 
+                languageManager.getString("alert.register.error"), 
+                languageManager.getString("alert.register.error.msg"));
         }
     }
     
@@ -338,8 +374,9 @@ public class Controller_Login_and_Signing implements Initializable {
         if (userTextField.getText().trim().isEmpty() || 
             passwordTextField.getText().trim().isEmpty()) {
             
-            mostrarAlerta(Alert.AlertType.WARNING, "Campos incompletos", 
-                "Por favor, ingrese su correo y contraseña.");
+            mostrarAlerta(Alert.AlertType.WARNING, 
+                languageManager.getString("alert.fields.incomplete"), 
+                languageManager.getString("alert.login.incomplete"));
             return;
         }
         
@@ -349,14 +386,16 @@ public class Controller_Login_and_Signing implements Initializable {
         Nodo_Usuario nodoUsuario = Lista_Usuarios.buscarCorreo(correo);
         
         if (nodoUsuario == null) {
-            mostrarAlerta(Alert.AlertType.WARNING, "Usuario no encontrado", 
-                "No existe un usuario registrado con este correo.");
+            mostrarAlerta(Alert.AlertType.WARNING, 
+                languageManager.getString("alert.user.not.found"), 
+                languageManager.getString("alert.user.not.exists"));
             return;
         }
                 
         if (!nodoUsuario.getUsuario().getContrasena().equals(contrasena)) {
-            mostrarAlerta(Alert.AlertType.WARNING, "Contraseña incorrecta", 
-                "La contraseña ingresada es incorrecta.");
+            mostrarAlerta(Alert.AlertType.WARNING, 
+                languageManager.getString("alert.password.incorrect"), 
+                languageManager.getString("alert.password.wrong"));
             return;
         }
                         
@@ -365,10 +404,9 @@ public class Controller_Login_and_Signing implements Initializable {
         userTextField.clear();
         passwordTextField.clear();
                 
-        String nombreUsuario = nodoUsuario.getUsuario().getNombre();
-        String roll = nodoUsuario.getUsuario().getRoll();
-        mostrarAlerta(Alert.AlertType.INFORMATION, "Bienvenido", 
-            "¡Bienvenido " + nombreUsuario + "!\nRol: " + roll);
+        mostrarAlerta(Alert.AlertType.INFORMATION, 
+            languageManager.getString("alert.welcome"), 
+            languageManager.getString("alert.welcome.user"));
                 
         cargarVentanaCatalogo();
     }
@@ -391,8 +429,9 @@ public class Controller_Login_and_Signing implements Initializable {
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
-            mostrarAlerta(Alert.AlertType.ERROR, "Error", 
-                "No se pudo cargar la ventana del catálogo: " + e.getMessage());
+            mostrarAlerta(Alert.AlertType.ERROR, 
+                languageManager.getString("alert.error"), 
+                languageManager.getString("alert.catalog.error"));
         }
     }
     
