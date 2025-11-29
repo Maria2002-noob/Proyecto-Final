@@ -90,7 +90,8 @@ public class Pila_Stack_De_Productos {
             Stack<Producto> productos = stack;
 
             for (Producto producto : productos) {
-                writer.write(producto.getPersonaje() + ",; ");
+                String nombrePersonaje = (producto.getPersonaje() != null) ? producto.getPersonaje().getNombre() : "NULL";
+                writer.write(nombrePersonaje + ",; ");
                 writer.write(producto.getIdentificacion() + ",; ");
                 writer.write(producto.getCorreo_usuario() + ",; ");
 
@@ -123,22 +124,27 @@ public class Pila_Stack_De_Productos {
             }
 
             while ((linea = reader.readLine()) != null) {
+                if (linea.trim().isEmpty()) {
+                    continue;
+                }
 
                 String[] atributos = linea.split(",; ");
 
-                String nombre = atributos[0];
-                String identificacion = atributos[1];
-                String correo_usuario = atributos[2];
+                if (atributos.length < 3) {
+                    System.out.println("Línea inválida en archivo: " + linea);
+                    continue;
+                }
+
+                String nombre = atributos[0].trim();
+                String identificacion = atributos[1].trim();
+                String correo_usuario = atributos[2].trim();
 
                 Nodo_Personaje nodo_per = Administrador_Singleton.getAdministrador().getLista_personajes().buscarNombre(nombre);
                 Nodo_Producto nodo_pro = Administrador_Singleton.getAdministrador().getLista_productos().buscarIdentificacion(identificacion);
 
-                Personaje personaje = null;
-                Producto producto = null;
-
-                if (nodo_per != null && producto != null) {
-                    personaje = nodo_per.getPersonaje();
-                    producto = nodo_pro.getProducto();
+                if (nodo_per != null && nodo_pro != null) {
+                    Personaje personaje = nodo_per.getPersonaje();
+                    Producto producto = nodo_pro.getProducto();
 
                     Producto newProducto = new Producto(
                             personaje,
@@ -150,15 +156,28 @@ public class Pila_Stack_De_Productos {
                             producto.getPrecio()
                     );
 
-                    if (!atributos[3].equals("NULL")) {
-                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
-                        LocalDateTime fecha_compra = LocalDateTime.parse(atributos[0], formatter);
-                        newProducto.setFecha_compra(fecha_compra);
+                    if (atributos.length > 3 && !atributos[3].trim().equals("NULL")) {
+                        try {
+                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+                            LocalDateTime fecha_compra = LocalDateTime.parse(atributos[3].trim(), formatter);
+                            newProducto.setFecha_compra(fecha_compra);
+                        } catch (Exception e) {
+                            System.out.println("Error al parsear fecha: " + atributos[3] + " - " + e.getMessage());
+                        }
                     }
 
                     newProducto.setCorreo_usuario(correo_usuario);
+                    System.out.println("Producto cargado: " + newProducto.getNombre() + " - Usuario: " + newProducto.getCorreo_usuario() + " - ID: " + newProducto.getIdentificacion());
 
                     setPushProducto(stack, newProducto);
+                } else {
+                    System.out.println("No se encontró personaje o producto para: " + nombre + " - " + identificacion);
+                    if (nodo_per == null) {
+                        System.out.println("  Personaje no encontrado: " + nombre);
+                    }
+                    if (nodo_pro == null) {
+                        System.out.println("  Producto no encontrado: " + identificacion);
+                    }
                 }
             }
         } catch (IOException e) {
@@ -194,5 +213,143 @@ public class Pila_Stack_De_Productos {
         loadDataFromFileTXTCarShop();
         loadDataFromFileTXTFavorites();
         loadDataFromFileTXTHistory();
+    }        
+    
+    public boolean estaEnCarrito(String identificacion, String correoUsuario) {
+        return obtenerProductoPorCorreoYNombre(productos_en_carrito, correoUsuario, identificacion) != null;
+    }
+    
+    public boolean estaEnWishlist(String identificacion, String correoUsuario) {
+        return obtenerProductoPorCorreoYNombre(productos_favoritos, correoUsuario, identificacion) != null;
+    }
+    
+    public Stack<Producto> obtenerProductosCarritoPorUsuario(String correoUsuario) {
+        Stack<Producto> productosUsuario = new Stack<>();
+        System.out.println("Buscando productos para usuario: " + correoUsuario);
+        System.out.println("Total productos en carrito: " + productos_en_carrito.size());
+        for (Producto producto : productos_en_carrito) {
+            String correoProducto = producto.getCorreo_usuario();
+            System.out.println("Producto: " + producto.getNombre() + " - Correo: " + correoProducto);
+            if (correoProducto != null && correoProducto.equals(correoUsuario)) {
+                productosUsuario.push(producto);
+                System.out.println("Producto agregado a la lista del usuario");
+            }
+        }
+        System.out.println("Productos encontrados para usuario: " + productosUsuario.size());
+        return productosUsuario;
+    }
+    
+    public Stack<Producto> obtenerProductosWishlistPorUsuario(String correoUsuario) {
+        Stack<Producto> productosUsuario = new Stack<>();
+        for (Producto producto : productos_favoritos) {
+            String correoProducto = producto.getCorreo_usuario();
+            // getCorreo_usuario() puede devolver "NULL" si es null o vacío
+            if (correoProducto != null && !correoProducto.equals("NULL") && correoProducto.equals(correoUsuario)) {
+                productosUsuario.push(producto);
+            }
+        }
+        return productosUsuario;
+    }
+    
+    public boolean eliminarDeCarrito(String identificacion, String correoUsuario) {
+        Producto producto = obtenerProductoPorCorreoYNombre(productos_en_carrito, correoUsuario, identificacion);
+        if (producto != null) {
+            productos_en_carrito.remove(producto);
+            saveDataToFileTXTCartShop();
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean eliminarDeWishlist(String identificacion, String correoUsuario) {
+        Producto producto = obtenerProductoPorCorreoYNombre(productos_favoritos, correoUsuario, identificacion);
+        if (producto != null) {
+            productos_favoritos.remove(producto);
+            saveDataToFileTXTFavorites();
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean moverDeWishlistACarrito(String identificacion, String correoUsuario) {
+        Producto producto = obtenerProductoPorCorreoYNombre(productos_favoritos, correoUsuario, identificacion);
+        if (producto != null) {            
+            if (estaEnCarrito(identificacion, correoUsuario)) {
+                return false;
+            }            
+            productos_favoritos.remove(producto);            
+            producto.setCorreo_usuario(correoUsuario);
+            setPushProducto(productos_en_carrito, producto);
+            saveDataToFileTXTCartShop();
+            saveDataToFileTXTFavorites();
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean moverDeCarritoAWishlist(String identificacion, String correoUsuario) {
+        Producto producto = obtenerProductoPorCorreoYNombre(productos_en_carrito, correoUsuario, identificacion);
+        if (producto != null) {            
+            if (estaEnWishlist(identificacion, correoUsuario)) {
+                return false;
+            }            
+            productos_en_carrito.remove(producto);            
+            producto.setCorreo_usuario(correoUsuario);
+            setPushProducto(productos_favoritos, producto);            
+            saveDataToFileTXTCartShop();
+            saveDataToFileTXTFavorites();
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean agregarAlCarrito(Producto producto, String correoUsuario) {
+        if (producto == null || correoUsuario == null) {
+            return false;
+        }        
+        if (estaEnCarrito(producto.getIdentificacion(), correoUsuario)) {
+            return false;
+        }        
+        if (estaEnWishlist(producto.getIdentificacion(), correoUsuario)) {            
+            return moverDeWishlistACarrito(producto.getIdentificacion(), correoUsuario);
+        }        
+        Producto nuevoProducto = new Producto(
+            producto.getPersonaje(),
+            producto.getIdentificacion(),
+            producto.getNombre(),
+            producto.getCategoria(),
+            producto.getDescripcionIngles(),
+            producto.getDescripcionEspanol(),
+            producto.getPrecio()
+        );
+        nuevoProducto.setCorreo_usuario(correoUsuario);
+        setPushProducto(productos_en_carrito, nuevoProducto);
+        saveDataToFileTXTCartShop();
+        return true;
+    }
+    
+    public boolean agregarAWishlist(Producto producto, String correoUsuario) {
+        if (producto == null || correoUsuario == null) {
+            return false;
+        }        
+        if (estaEnWishlist(producto.getIdentificacion(), correoUsuario)) {
+            return false;
+        }        
+        if (estaEnCarrito(producto.getIdentificacion(), correoUsuario)) {            
+            return moverDeCarritoAWishlist(producto.getIdentificacion(), correoUsuario);
+        }        
+        Producto nuevoProducto = new Producto(
+            producto.getPersonaje(),
+            producto.getIdentificacion(),
+            producto.getNombre(),
+            producto.getCategoria(),
+            producto.getDescripcionIngles(),
+            producto.getDescripcionEspanol(),
+            producto.getPrecio()
+        );
+        nuevoProducto.setCorreo_usuario(correoUsuario);
+        setPushProducto(productos_favoritos, nuevoProducto);
+        saveDataToFileTXTFavorites();
+        return true;
     }
 }
