@@ -109,8 +109,7 @@ public class Controller_Product_Detail_View implements Initializable {
         if (quantityLabelText != null) {
             quantityLabelText.setText(languageManager.getString("product.detail.quantity"));
         }
-        
-        // Actualizar descripción del producto si está cargado
+                
         if (productoActual != null && productoActual.getProducto() != null) {
             Producto producto = productoActual.getProducto();
             if (characterDescriptionLabel != null) {
@@ -135,8 +134,7 @@ public class Controller_Product_Detail_View implements Initializable {
         if (productoActual != null && productoActual.getProducto() != null && productPriceLabel != null) {
             productPriceLabel.setText(languageManager.formatPrice(productoActual.getProducto().getPrecio()));
         }
-        
-        // Actualizar precios de productos recomendados
+                
         if (recommendedProductsFlowPane != null) {
             for (Node node : recommendedProductsFlowPane.getChildren()) {
                 if (node instanceof AnchorPane) {
@@ -161,8 +159,7 @@ public class Controller_Product_Detail_View implements Initializable {
         if (productPriceLabel != null) {
             productPriceLabel.setText(languageManager.formatPrice(producto.getPrecio()));
         }
-        
-        // Mostrar descripción del producto en lugar de la del personaje
+                
         if (characterDescriptionLabel != null) {
             String descripcion;
             if ("es".equals(languageManager.getCurrentLanguage())) {
@@ -178,8 +175,7 @@ public class Controller_Product_Detail_View implements Initializable {
             }
             characterDescriptionLabel.setText(descripcion != null ? descripcion : "");
         }
-        
-        // Ocultar el label del nombre del personaje ya que ahora mostramos la descripción del producto
+                
         if (characterNameLabel != null) {
             characterNameLabel.setVisible(false);
             characterNameLabel.setManaged(false);
@@ -208,8 +204,7 @@ public class Controller_Product_Detail_View implements Initializable {
         productImages.clear();
         thumbnailViews.clear();
         thumbnailsContainer.getChildren().clear();
-        
-        // Buscar todas las imágenes disponibles (001, 002, 003, etc.)
+                
         for (int i = 1; i <= 10; i++) {
             String[] imageNames = {
                 String.format("%03d-Product-%s.jpg", i, productNum),
@@ -226,7 +221,6 @@ public class Controller_Product_Detail_View implements Initializable {
             if (image != null) {
                 productImages.add(image);
                 
-                // Crear thumbnail
                 ImageView thumbnail = new ImageView(image);
                 thumbnail.setFitHeight(80);
                 thumbnail.setFitWidth(80);
@@ -241,8 +235,7 @@ public class Controller_Product_Detail_View implements Initializable {
                 thumbnailsContainer.getChildren().add(thumbnail);
             }
         }
-        
-        // Si no se encontraron imágenes, intentar con el método anterior
+                
         if (productImages.isEmpty()) {
             String[] fallbackNames = {
                 "001-Product-" + productNum + ".jpg",
@@ -271,13 +264,11 @@ public class Controller_Product_Detail_View implements Initializable {
                 thumbnailsContainer.getChildren().add(thumbnail);
             }
         }
-        
-        // Mostrar primera imagen
+                
         if (!productImages.isEmpty()) {
             mostrarImagen(0);
         }
-        
-        // Actualizar visibilidad de flechas
+                
         actualizarVisibilidadFlechas();
     }
     
@@ -300,8 +291,7 @@ public class Controller_Product_Detail_View implements Initializable {
         if (index >= 0 && index < productImages.size() && mainProductImageView != null) {
             currentImageIndex = index;
             mainProductImageView.setImage(productImages.get(index));
-            
-            // Actualizar estilo de thumbnails
+                        
             for (int i = 0; i < thumbnailViews.size(); i++) {
                 if (i == index) {
                     thumbnailViews.get(i).getStyleClass().add("thumbnail-selected");
@@ -378,8 +368,7 @@ public class Controller_Product_Detail_View implements Initializable {
         
         pilaProductos.loadDataFromFileTXTCarShop();
         pilaProductos.loadDataFromFileTXTFavorites();
-        
-        // Agregar producto múltiples veces según la cantidad
+                
         boolean todosAgregados = true;
         for (int i = 0; i < quantity; i++) {
             boolean agregado = pilaProductos.agregarAlCarrito(producto, correoUsuario);
@@ -428,13 +417,11 @@ public class Controller_Product_Detail_View implements Initializable {
             if (nodo == null || nodo.getProducto() == null) {
                 continue;
             }
-            
-            // Excluir el producto actual
+                        
             if (nodo.getProducto().getIdentificacion().equals(producto.getIdentificacion())) {
                 continue;
             }
-            
-            // Verificar si comparte alguna categoría
+                        
             String[] categoriasNodo = nodo.getProducto().getCategoria();
             if (categoriasNodo != null && categoriasNodo.length > 0) {
                 for (String categoria : categorias) {
@@ -449,14 +436,12 @@ public class Controller_Product_Detail_View implements Initializable {
                     }
                 }
             }
-            
-            // Limitar a 15 productos
+                        
             if (productosRecomendados.size() >= 15) {
                 break;
             }
         }
-        
-        // Cargar productos recomendados en el FlowPane
+                
         recommendedProductsFlowPane.getChildren().clear();
         
         for (Nodo_Producto nodoProducto : productosRecomendados) {
@@ -483,8 +468,7 @@ public class Controller_Product_Detail_View implements Initializable {
         }
     }
     
-    private void mostrarDetallesProducto(Nodo_Producto nodoProducto) {
-        // Cambiar el producto actual en la vista de detalles
+    private void mostrarDetallesProducto(Nodo_Producto nodoProducto) {        
         setProducto(nodoProducto);
     }
     

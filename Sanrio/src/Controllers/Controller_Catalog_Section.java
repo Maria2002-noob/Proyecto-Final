@@ -85,8 +85,10 @@ public class Controller_Catalog_Section implements Initializable {
     
     private AnchorPane wishlistPanel;
     private AnchorPane cartPanel;
+    private AnchorPane changePasswordPanel;
     private Controller_Wishlist_Panel wishlistController;
     private Controller_Cart_Panel cartController;
+    private Controller_Change_Password_Panel changePasswordController;
     
     private Node productDetailView;
     private Controller_Product_Detail_View productDetailController;
@@ -426,8 +428,59 @@ public class Controller_Catalog_Section implements Initializable {
     
     @FXML
     private void handleChangePassword(MouseEvent event) {
-        System.out.println("Cambiar contraseña");
-        ocultarMenu();
+        if (administrador.getUsuarioActual() == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle(languageManager.getString("alert.error"));
+            alert.setHeaderText(null);
+            alert.setContentText(languageManager.getString("alert.login.required"));
+            alert.showAndWait();
+            return;
+        }
+        
+        try {
+            if (changePasswordPanel == null) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Change_Password_Panel.fxml"));
+                changePasswordPanel = loader.load();
+                changePasswordController = loader.getController();
+                changePasswordController.setOnClose(() -> closeChangePasswordPanel());
+                
+                if (root != null && root.getScene() != null) {
+                    double sceneWidth = root.getScene().getWidth();
+                    double sceneHeight = root.getScene().getHeight();
+                    double panelWidth = changePasswordPanel.getPrefWidth();
+                    double panelHeight = changePasswordPanel.getPrefHeight();
+                    changePasswordPanel.setLayoutX((sceneWidth - panelWidth) / 2);
+                    changePasswordPanel.setLayoutY((sceneHeight - panelHeight) / 2);
+                }
+                
+                root.getChildren().add(changePasswordPanel);
+                changePasswordPanel.toFront();
+            }
+            
+            changePasswordPanel.setVisible(true);
+            changePasswordPanel.setManaged(true);
+            changePasswordPanel.toFront();
+            
+            if (changePasswordController != null) {
+                changePasswordController.actualizarTextos();
+            }
+            
+            configurarCerrarPanelAlClickFuera(changePasswordPanel, () -> closeChangePasswordPanel());
+            
+            ocultarMenu();
+            
+        } catch (IOException e) {
+            System.out.println("Error al cargar panel de cambio de contraseña: " + e.getMessage());
+            e.printStackTrace();
+        }
+        event.consume();
+    }
+    
+    private void closeChangePasswordPanel() {
+        if (changePasswordPanel != null) {
+            changePasswordPanel.setVisible(false);
+            changePasswordPanel.setManaged(false);
+        }
     }
     
     @FXML
@@ -447,8 +500,7 @@ public class Controller_Catalog_Section implements Initializable {
                 
         actualizarTextosBotonesProductos();
         actualizarPreciosProductos();
-        
-        // Actualizar textos y precios de la vista de detalles si está activa
+                
         if (productDetailController != null && productDetailView != null && 
             mainScrollPane != null && mainScrollPane.getContent() == productDetailView) {
             productDetailController.actualizarTextos();
@@ -532,6 +584,10 @@ public class Controller_Catalog_Section implements Initializable {
                 
         if (cartController != null && cartPanel != null && cartPanel.isVisible()) {
             cartController.refresh();
+        }
+        
+        if (changePasswordController != null && changePasswordPanel != null && changePasswordPanel.isVisible()) {
+            changePasswordController.actualizarTextos();
         }
     }
     
@@ -718,8 +774,7 @@ public class Controller_Catalog_Section implements Initializable {
     }
     
     @FXML
-    private void handleLogoClick(MouseEvent event) {
-        // Si estamos en la vista de detalles, volver al catálogo primero
+    private void handleLogoClick(MouseEvent event) {        
         if (productDetailView != null && mainScrollPane != null && mainScrollPane.getContent() == productDetailView) {
             volverAlCatalogo();
         }
@@ -890,13 +945,11 @@ public class Controller_Catalog_Section implements Initializable {
     }
     
     public void mostrarDetallesProducto(Nodo_Producto nodoProducto) {
-        try {
-            // Guardar el contenido actual del ScrollPane
+        try {            
             if (catalogContentBackup == null && mainScrollPane != null) {
                 catalogContentBackup = mainScrollPane.getContent();
             }
-            
-            // Cargar la vista de detalles si no está cargada
+                        
             if (productDetailView == null) {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Product_Detail_View.fxml"));
                 productDetailView = loader.load();
@@ -904,12 +957,10 @@ public class Controller_Catalog_Section implements Initializable {
                 productDetailController.setOnBackToCatalog(() -> volverAlCatalogo());
             }
             
-            // Configurar el producto en el controlador
             if (productDetailController != null) {
                 productDetailController.setProducto(nodoProducto);
             }
-            
-            // Reemplazar el contenido del ScrollPane con la vista de detalles
+                        
             if (mainScrollPane != null && productDetailView != null) {
                 mainScrollPane.setContent(productDetailView);
             }
@@ -920,8 +971,7 @@ public class Controller_Catalog_Section implements Initializable {
         }
     }
     
-    public void volverAlCatalogo() {
-        // Restaurar el contenido original del ScrollPane
+    public void volverAlCatalogo() {        
         if (mainScrollPane != null && catalogContentBackup != null) {
             mainScrollPane.setContent(catalogContentBackup);
         }
