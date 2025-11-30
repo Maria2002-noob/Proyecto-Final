@@ -15,8 +15,7 @@
     <stylesheets>
         <URL value="@../Styles/Catalog_Section.css" />
     </stylesheets>
-    
-    <!-- Header Section -->
+        
     <AnchorPane id="headerPane" fx:id="headerPane" prefHeight="80.0" styleClass="header-pane" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <HBox alignment="CENTER_LEFT" spacing="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="0.0">
             <HBox fx:id="purchaseHistoryBox" alignment="CENTER" onMouseClicked="#handlePurchaseHistory" spacing="5.0" styleClass="nav-item" visible="false">
