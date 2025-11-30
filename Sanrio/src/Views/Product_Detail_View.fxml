@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="root" alignment="TOP_CENTER" fillWidth="false" styleClass="main-content" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Controller_Product_Detail_View">
+    <stylesheets>
+        <URL value="@../Styles/Product_Detail_View.css" />
+    </stylesheets>
+    
+    <padding>
+        <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+    </padding>
+    
+    <!-- Product Detail Section -->
+    <HBox alignment="TOP_CENTER" spacing="60.0" styleClass="product-detail-section">
+        <!-- Left Column: Image Carousel -->
+        <VBox alignment="CENTER" spacing="15.0" styleClass="image-carousel-container">
+            <!-- Main Image Container -->
+            <StackPane styleClass="main-image-container">
+                <ImageView fx:id="mainProductImageView" fitHeight="500.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true" styleClass="main-product-image" />
+            </StackPane>
+            
+            <!-- Thumbnails Container -->
+            <HBox fx:id="thumbnailsContainer" alignment="CENTER" spacing="10.0" styleClass="thumbnails-container">
+                <children>
+                    <!-- Left Arrow -->
+                    <ImageView fx:id="leftArrowButton" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#handlePreviousImage" pickOnBounds="true" preserveRatio="true" styleClass="carousel-arrow left-arrow" visible="false">
+                        <image>
+                            <Image url="@../Images/Left.png" />
+                        </image>
+                    </ImageView>
+                    
+                    <!-- Right Arrow -->
+                    <ImageView fx:id="rightArrowButton" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#handleNextImage" pickOnBounds="true" preserveRatio="true" styleClass="carousel-arrow right-arrow" visible="false">
+                        <image>
+                            <Image url="@../Images/Right.png" />
+                        </image>
+                    </ImageView>
+                </children>
+            </HBox>
+        </VBox>
+        
+        <!-- Right Column: Product Information -->
+        <VBox alignment="TOP_LEFT" prefWidth="500.0" spacing="20.0" styleClass="product-info-container">
+            <!-- Product Title -->
+            <Label fx:id="productTitleLabel" styleClass="product-title-label" text="Product Title" wrapText="true" />
+            
+            <!-- Price -->
+            <Label fx:id="productPriceLabel" styleClass="product-price-label" text="\$0.00" />
+            
+            <!-- Quantity Selector -->
+            <HBox alignment="CENTER_LEFT" spacing="15.0" styleClass="quantity-selector-container">
+                <Label fx:id="quantityLabelText" styleClass="quantity-label" text="Quantity:" />
+                <HBox alignment="CENTER" spacing="0.0" styleClass="quantity-controls">
+                    <Button fx:id="decreaseQuantityButton" mnemonicParsing="false" onAction="#handleDecreaseQuantity" styleClass="quantity-button" text="-" />
+                    <Label fx:id="quantityLabel" alignment="CENTER" prefWidth="60.0" styleClass="quantity-value-label" text="1" />
+                    <Button fx:id="increaseQuantityButton" mnemonicParsing="false" onAction="#handleIncreaseQuantity" styleClass="quantity-button" text="+" />
+                </HBox>
+            </HBox>
+            
+            <!-- Add to Bag Button -->
+            <Button fx:id="addToBagButton" mnemonicParsing="false" onAction="#handleAddToBag" prefHeight="50.0" prefWidth="300.0" styleClass="add-to-bag-button" text="ADD TO BAG" />
+            
+            <!-- Character Description Section -->
+            <VBox alignment="TOP_LEFT" spacing="10.0" styleClass="character-description-container">
+                <Label fx:id="characterNameLabel" styleClass="character-name-label" text="Character Name" />
+                <Label fx:id="characterDescriptionLabel" styleClass="character-description-label" text="Character description will appear here..." wrapText="true" />
+            </VBox>
+        </VBox>
+    </HBox>
+    
+    <!-- Recommended Products Section -->
+    <VBox alignment="CENTER" prefHeight="485.0" prefWidth="1099.0" spacing="20.0" styleClass="recommended-section">
+        <Label fx:id="recommendedTitleLabel" styleClass="recommended-title-label" text="You might also like..." />
+        <ScrollPane fx:id="recommendedScrollPane" fitToHeight="true" hbarPolicy="ALWAYS" styleClass="recommended-scroll-pane" vbarPolicy="NEVER">
+            <content>
+                <FlowPane fx:id="recommendedProductsFlowPane" alignment="CENTER_LEFT" hgap="20.0" prefHeight="340.0" prefWidth="1060.0" styleClass="recommended-products-flowpane" vgap="20.0" />
+            </content>
+        </ScrollPane>
+    </VBox>
+</VBox>
