@@ -352,4 +352,40 @@ public class Pila_Stack_De_Productos {
         saveDataToFileTXTFavorites();
         return true;
     }
+    
+    public boolean moverCarritoAHistorial(String correoUsuario) {
+        if (correoUsuario == null) {
+            return false;
+        }
+        
+        Stack<Producto> productosCarrito = obtenerProductosCarritoPorUsuario(correoUsuario);
+        
+        if (productosCarrito.isEmpty()) {
+            return false;
+        }
+        
+        LocalDateTime fechaCompra = LocalDateTime.now();
+        
+        for (Producto producto : productosCarrito) {
+            Producto productoHistorial = new Producto(
+                producto.getPersonaje(),
+                producto.getIdentificacion(),
+                producto.getNombre(),
+                producto.getCategoria(),
+                producto.getDescripcionIngles(),
+                producto.getDescripcionEspanol(),
+                producto.getPrecio()
+            );
+            productoHistorial.setCorreo_usuario(correoUsuario);
+            productoHistorial.setFecha_compra(fechaCompra);
+            
+            setPushProducto(producto_historial, productoHistorial);
+            productos_en_carrito.remove(producto);
+        }
+        
+        saveDataToFileTXTHistory();
+        saveDataToFileTXTCartShop();
+        
+        return true;
+    }
 }
