@@ -34,46 +34,33 @@ public class LanguageManager {
         }
         resourceBundle = loadResourceBundle("Resources.messages", currentLocale);
     }
-    
-    /**
-     * Carga un ResourceBundle con codificación UTF-8 para soportar caracteres especiales
-     * como acentos, ñ, etc.
-     * 
-     * IMPORTANTE: Los archivos .properties deben estar guardados en UTF-8
-     * para que los caracteres especiales se rendericen correctamente.
-     */
+        
     private ResourceBundle loadResourceBundle(String baseName, Locale locale) {
         ClassLoader classLoader = LanguageManager.class.getClassLoader();
         if (classLoader == null) {
             classLoader = ClassLoader.getSystemClassLoader();
         }
-        
-        // Construir el nombre del archivo de recursos
+                
         String resourceName = baseName.replace('.', '/') + "_" + locale.getLanguage() + ".properties";
         InputStream stream = classLoader.getResourceAsStream(resourceName);
         
-        if (stream == null) {
-            // Intentar sin el sufijo de idioma (archivo por defecto)
+        if (stream == null) {            
             resourceName = baseName.replace('.', '/') + ".properties";
             stream = classLoader.getResourceAsStream(resourceName);
         }
         
         if (stream != null) {
-            try {
-                // Leer el archivo con codificación UTF-8
-                // Usar try-with-resources para asegurar el cierre correcto
+            try {                
                 try (InputStreamReader reader = new InputStreamReader(stream, StandardCharsets.UTF_8)) {
                     return new PropertyResourceBundle(reader);
                 }
             } catch (IOException e) {
                 System.err.println("Error al leer el archivo de recursos con UTF-8: " + e.getMessage());
-                e.printStackTrace();
-                // Fallback a ResourceBundle estándar
+                e.printStackTrace();                
                 return ResourceBundle.getBundle(baseName, locale);
             }
         } else {
-            System.err.println("No se pudo encontrar el archivo de recursos: " + resourceName);
-            // Fallback a ResourceBundle estándar
+            System.err.println("No se pudo encontrar el archivo de recursos: " + resourceName);            
             return ResourceBundle.getBundle(baseName, locale);
         }
     }
