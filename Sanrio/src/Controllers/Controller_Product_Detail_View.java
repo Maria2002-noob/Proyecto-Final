@@ -110,24 +110,23 @@ public class Controller_Product_Detail_View implements Initializable {
             quantityLabelText.setText(languageManager.getString("product.detail.quantity"));
         }
         
-        // Actualizar descripción del personaje si el producto está cargado
-        if (productoActual != null && productoActual.getProducto() != null && 
-            productoActual.getProducto().getPersonaje() != null) {
-            Personaje personaje = productoActual.getProducto().getPersonaje();
+        // Actualizar descripción del producto si está cargado
+        if (productoActual != null && productoActual.getProducto() != null) {
+            Producto producto = productoActual.getProducto();
             if (characterDescriptionLabel != null) {
                 String descripcion;
                 if ("es".equals(languageManager.getCurrentLanguage())) {
-                    descripcion = personaje.getDescripcionEspanol();
+                    descripcion = producto.getDescripcionEspanol();
                     if (descripcion == null || descripcion.isEmpty()) {
-                        descripcion = personaje.getDescripcionIngles();
+                        descripcion = producto.getDescripcionIngles();
                     }
                 } else {
-                    descripcion = personaje.getDescripcionIngles();
+                    descripcion = producto.getDescripcionIngles();
                     if (descripcion == null || descripcion.isEmpty()) {
-                        descripcion = personaje.getDescripcionEspanol();
+                        descripcion = producto.getDescripcionEspanol();
                     }
                 }
-                characterDescriptionLabel.setText(descripcion);
+                characterDescriptionLabel.setText(descripcion != null ? descripcion : "");
             }
         }
     }
@@ -163,28 +162,27 @@ public class Controller_Product_Detail_View implements Initializable {
             productPriceLabel.setText(languageManager.formatPrice(producto.getPrecio()));
         }
         
-        if (producto.getPersonaje() != null) {
-            Personaje personaje = producto.getPersonaje();
-            
-            if (characterNameLabel != null) {
-                characterNameLabel.setText(personaje.getNombre());
-            }
-            
-            if (characterDescriptionLabel != null) {
-                String descripcion;
-                if ("es".equals(languageManager.getCurrentLanguage())) {
-                    descripcion = personaje.getDescripcionEspanol();
-                    if (descripcion == null || descripcion.isEmpty()) {
-                        descripcion = personaje.getDescripcionIngles();
-                    }
-                } else {
-                    descripcion = personaje.getDescripcionIngles();
-                    if (descripcion == null || descripcion.isEmpty()) {
-                        descripcion = personaje.getDescripcionEspanol();
-                    }
+        // Mostrar descripción del producto en lugar de la del personaje
+        if (characterDescriptionLabel != null) {
+            String descripcion;
+            if ("es".equals(languageManager.getCurrentLanguage())) {
+                descripcion = producto.getDescripcionEspanol();
+                if (descripcion == null || descripcion.isEmpty()) {
+                    descripcion = producto.getDescripcionIngles();
                 }
-                characterDescriptionLabel.setText(descripcion);
+            } else {
+                descripcion = producto.getDescripcionIngles();
+                if (descripcion == null || descripcion.isEmpty()) {
+                    descripcion = producto.getDescripcionEspanol();
+                }
             }
+            characterDescriptionLabel.setText(descripcion != null ? descripcion : "");
+        }
+        
+        // Ocultar el label del nombre del personaje ya que ahora mostramos la descripción del producto
+        if (characterNameLabel != null) {
+            characterNameLabel.setVisible(false);
+            characterNameLabel.setManaged(false);
         }
     }
     

@@ -29,25 +29,26 @@
             <StackPane styleClass="main-image-container">
                 <ImageView fx:id="mainProductImageView" fitHeight="500.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true" styleClass="main-product-image" />
             </StackPane>
-            
-            <!-- Thumbnails Container -->
-            <HBox fx:id="thumbnailsContainer" alignment="CENTER" spacing="10.0" styleClass="thumbnails-container">
-                <children>
+         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <children>
                     <!-- Left Arrow -->
                     <ImageView fx:id="leftArrowButton" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#handlePreviousImage" pickOnBounds="true" preserveRatio="true" styleClass="carousel-arrow left-arrow" visible="false">
                         <image>
                             <Image url="@../Images/Left.png" />
                         </image>
                     </ImageView>
+                  
+                  <!-- Thumbnails Container -->
+                  <HBox fx:id="thumbnailsContainer" alignment="CENTER" spacing="10.0" styleClass="thumbnails-container" />
                     
-                    <!-- Right Arrow -->
+                          <!-- Right Arrow -->
                     <ImageView fx:id="rightArrowButton" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#handleNextImage" pickOnBounds="true" preserveRatio="true" styleClass="carousel-arrow right-arrow" visible="false">
                         <image>
                             <Image url="@../Images/Right.png" />
                         </image>
                     </ImageView>
-                </children>
-            </HBox>
+            </children>
+         </HBox>
         </VBox>
         
         <!-- Right Column: Product Information -->
