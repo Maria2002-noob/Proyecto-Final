@@ -93,3 +93,24 @@
     -fx-text-fill: #999999;
 }
 
+.checkout-button {
+    -fx-background-color: #01B032;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+    -fx-padding: 10px;
+    -fx-margin: 10px;
+}
+
+.checkout-button:hover {
+    -fx-background-color: #019028;
+    -fx-effect: dropshadow(gaussian, rgba(1, 176, 50, 0.4), 8, 0, 0, 3);
+}
+
+.checkout-button:pressed {
+    -fx-background-color: #016B1E;
+}
+
