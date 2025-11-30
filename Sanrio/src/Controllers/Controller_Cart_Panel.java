@@ -8,6 +8,7 @@ import java.util.Stack;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -30,10 +31,14 @@ public class Controller_Cart_Panel {
     @FXML
     private VBox emptyStateContainer;
     
+    @FXML
+    private Button checkoutButton;
+    
     private Pila_Stack_De_Productos pilaProductos;
     private Administrador_Singleton administrador;
     private LanguageManager languageManager;
     private Runnable onClose;
+    private Runnable onCheckout;
     
     public void initialize() {
         administrador = Administrador_Singleton.getAdministrador();
@@ -47,6 +52,10 @@ public class Controller_Cart_Panel {
     
     public void setOnClose(Runnable onClose) {
         this.onClose = onClose;
+    }
+    
+    public void setOnCheckout(Runnable onCheckout) {
+        this.onCheckout = onCheckout;
     }
     
     private void loadCartItems() {
@@ -65,6 +74,11 @@ public class Controller_Cart_Panel {
         } else {
             hideEmptyState();
             updateTitle(productosCarrito.size());
+            
+            if (checkoutButton != null) {
+                checkoutButton.setVisible(true);
+                checkoutButton.setManaged(true);
+            }
             
             for (Producto producto : productosCarrito) {
                 Component_CartItem item = createCartItem(producto);
@@ -131,6 +145,10 @@ public class Controller_Cart_Panel {
         if (itemsContainer != null) {
             itemsContainer.setVisible(false);
         }
+        if (checkoutButton != null) {
+            checkoutButton.setVisible(false);
+            checkoutButton.setManaged(false);
+        }
         updateTitle(0);
     }
     
@@ -148,6 +166,13 @@ public class Controller_Cart_Panel {
         event.consume();
         if (onClose != null) {
             onClose.run();
+        }
+    }
+    
+    @FXML
+    private void handleCheckout() {
+        if (onCheckout != null) {
+            onCheckout.run();
         }
     }
     

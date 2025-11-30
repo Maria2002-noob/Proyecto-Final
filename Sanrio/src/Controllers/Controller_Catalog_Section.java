@@ -86,9 +86,11 @@ public class Controller_Catalog_Section implements Initializable {
     private AnchorPane wishlistPanel;
     private AnchorPane cartPanel;
     private AnchorPane changePasswordPanel;
+    private AnchorPane checkoutView;
     private Controller_Wishlist_Panel wishlistController;
     private Controller_Cart_Panel cartController;
     private Controller_Change_Password_Panel changePasswordController;
+    private Controller_Checkout_View checkoutController;
     
     private Node productDetailView;
     private Controller_Product_Detail_View productDetailController;
@@ -589,6 +591,11 @@ public class Controller_Catalog_Section implements Initializable {
         if (changePasswordController != null && changePasswordPanel != null && changePasswordPanel.isVisible()) {
             changePasswordController.actualizarTextos();
         }
+        
+        if (checkoutController != null && checkoutView != null && checkoutView.isVisible()) {
+            checkoutController.actualizarTextos();
+            checkoutController.actualizarPrecios();
+        }
     }
     
     private Button buscarBotonRecursivo(javafx.scene.Parent parent) {
@@ -712,6 +719,7 @@ public class Controller_Catalog_Section implements Initializable {
                 cartPanel = loader.load();
                 cartController = loader.getController();
                 cartController.setOnClose(() -> closeCartPanel());
+                cartController.setOnCheckout(() -> mostrarCheckout());
                                 
                 if (root != null && root.getScene() != null) {
                     double sceneWidth = root.getScene().getWidth();
@@ -974,6 +982,58 @@ public class Controller_Catalog_Section implements Initializable {
     public void volverAlCatalogo() {        
         if (mainScrollPane != null && catalogContentBackup != null) {
             mainScrollPane.setContent(catalogContentBackup);
+        }
+    }
+    
+    private void mostrarCheckout() {
+        if (administrador.getUsuarioActual() == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle(languageManager.getString("alert.error"));
+            alert.setHeaderText(null);
+            alert.setContentText(languageManager.getString("alert.login.required"));
+            alert.showAndWait();
+            return;
+        }
+        
+        try {
+            // Cerrar panel de carrito
+            closeCartPanel();
+            
+            if (checkoutView == null) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Checkout_View.fxml"));
+                checkoutView = loader.load();
+                checkoutController = loader.getController();
+                checkoutController.setOnClose(() -> cerrarCheckout());
+                
+                if (root != null && root.getScene() != null) {
+                    double sceneWidth = root.getScene().getWidth();
+                    double sceneHeight = root.getScene().getHeight();
+                    double panelWidth = checkoutView.getPrefWidth();
+                    double panelHeight = checkoutView.getPrefHeight();
+                    checkoutView.setLayoutX((sceneWidth - panelWidth) / 2);
+                    checkoutView.setLayoutY((sceneHeight - panelHeight) / 2);
+                }
+                
+                root.getChildren().add(checkoutView);
+                checkoutView.toFront();
+            }
+            
+            checkoutView.setVisible(true);
+            checkoutView.setManaged(true);
+            checkoutView.toFront();
+            
+            configurarCerrarPanelAlClickFuera(checkoutView, () -> cerrarCheckout());
+            
+        } catch (IOException e) {
+            System.out.println("Error al cargar vista de checkout: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
+    private void cerrarCheckout() {
+        if (checkoutView != null) {
+            checkoutView.setVisible(false);
+            checkoutView.setManaged(false);
         }
     }
 }
