@@ -50,7 +50,7 @@
     -fx-border-width: 2px;
 }
 
-/* PasswordField styles (same as TextField) */
+/* PasswordField styles */
 #passwordTextField {
     -fx-background-color: #EAF6FB;
     -fx-border-color: #000000;
