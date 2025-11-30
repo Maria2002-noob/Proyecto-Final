@@ -234,14 +234,12 @@ public class Controller_Catalog_Section implements Initializable {
                         }
                     } catch (IOException ioEx) {
                         System.out.println("Error de IO al cargar ProductCard: " + ioEx.getMessage());
-                        ioEx.printStackTrace();
                     }
                 } else {
                     System.out.println("ADVERTENCIA: Nodo de producto nulo en índice " + i);
                 }
             } catch (Exception e) {
-                System.out.println("Error al crear card de producto en índice " + i + ": " + e.getMessage());
-                e.printStackTrace();
+                System.out.println("Error al crear card de producto en índice " + i + ": " + e.getMessage());               
             }
         }
         
@@ -298,8 +296,7 @@ public class Controller_Catalog_Section implements Initializable {
         Producto producto = nodoProducto.getProducto();
         String correoUsuario = administrador.getUsuarioActual().getUsuario().getCorreo();
         Pila_Stack_De_Productos pilaProductos = administrador.getPila_productos();
-        
-        // Cargar datos actualizados
+                
         pilaProductos.loadDataFromFileTXTCarShop();
         pilaProductos.loadDataFromFileTXTFavorites();
         
@@ -311,8 +308,7 @@ public class Controller_Catalog_Section implements Initializable {
             alert.setHeaderText(null);
             alert.setContentText(languageManager.getString("alert.product.added.to.cart"));
             alert.showAndWait();
-            
-            // Refrescar panel de carrito si está abierto
+                     
             if (cartPanel != null && cartPanel.isVisible() && cartController != null) {
                 cartController.refresh();
             }
@@ -515,13 +511,11 @@ public class Controller_Catalog_Section implements Initializable {
                 }
             }
         }
-        
-        // Actualizar precios en wishlist si está abierto
+                
         if (wishlistController != null && wishlistPanel != null && wishlistPanel.isVisible()) {
             wishlistController.refresh();
         }
-        
-        // Actualizar precios en carrito si está abierto
+                
         if (cartController != null && cartPanel != null && cartPanel.isVisible()) {
             cartController.refresh();
         }
@@ -648,8 +642,7 @@ public class Controller_Catalog_Section implements Initializable {
                 cartPanel = loader.load();
                 cartController = loader.getController();
                 cartController.setOnClose(() -> closeCartPanel());
-                
-                // Posicionar el panel centrado o a la derecha
+                                
                 if (root != null && root.getScene() != null) {
                     double sceneWidth = root.getScene().getWidth();
                     double panelWidth = cartPanel.getPrefWidth();
@@ -664,18 +657,15 @@ public class Controller_Catalog_Section implements Initializable {
             cartPanel.setVisible(true);
             cartPanel.setManaged(true);
             cartPanel.toFront();
-            
-            // Refrescar datos
+                        
             if (cartController != null) {
                 cartController.refresh();
             }
-            
-            // Configurar cierre al hacer clic fuera
+                        
             configurarCerrarPanelAlClickFuera(cartPanel, () -> closeCartPanel());
             
         } catch (IOException e) {
-            System.out.println("Error al cargar panel de carrito: " + e.getMessage());
-            e.printStackTrace();
+            System.out.println("Error al cargar panel de carrito: " + e.getMessage());            
         }
         event.consume();
     }
