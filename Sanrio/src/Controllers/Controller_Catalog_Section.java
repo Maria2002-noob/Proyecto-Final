@@ -88,6 +88,11 @@ public class Controller_Catalog_Section implements Initializable {
     private Controller_Wishlist_Panel wishlistController;
     private Controller_Cart_Panel cartController;
     
+    private Node productDetailView;
+    private Controller_Product_Detail_View productDetailController;
+        
+    private Node catalogContentBackup;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         administrador = Administrador_Singleton.getAdministrador();
@@ -223,9 +228,11 @@ public class Controller_Catalog_Section implements Initializable {
                         if (controller != null) {
                             controller.setProducto(nodoProducto);
                             controller.setOnAddToBag(() -> agregarAlCarrito(nodoProducto));
+                            controller.setOnImageClick(() -> mostrarDetallesProducto(nodoProducto));
                             
                             productCard.setPrefWidth(190);
                             productCard.setPrefHeight(300);
+                            productCard.getProperties().put("controller", controller);
                             
                             productsFlowPane.getChildren().add(productCard);
                             productosAgregados++;
@@ -440,6 +447,13 @@ public class Controller_Catalog_Section implements Initializable {
                 
         actualizarTextosBotonesProductos();
         actualizarPreciosProductos();
+        
+        // Actualizar textos y precios de la vista de detalles si está activa
+        if (productDetailController != null && productDetailView != null && 
+            mainScrollPane != null && mainScrollPane.getContent() == productDetailView) {
+            productDetailController.actualizarTextos();
+            productDetailController.actualizarPrecios();
+        }
         
         ocultarMenu();
                 
@@ -705,6 +719,10 @@ public class Controller_Catalog_Section implements Initializable {
     
     @FXML
     private void handleLogoClick(MouseEvent event) {
+        // Si estamos en la vista de detalles, volver al catálogo primero
+        if (productDetailView != null && mainScrollPane != null && mainScrollPane.getContent() == productDetailView) {
+            volverAlCatalogo();
+        }
         restablecerFiltro();
     }
     
@@ -869,5 +887,43 @@ public class Controller_Catalog_Section implements Initializable {
                     "-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 15, 0, 0, 3);");
             }
         });
+    }
+    
+    public void mostrarDetallesProducto(Nodo_Producto nodoProducto) {
+        try {
+            // Guardar el contenido actual del ScrollPane
+            if (catalogContentBackup == null && mainScrollPane != null) {
+                catalogContentBackup = mainScrollPane.getContent();
+            }
+            
+            // Cargar la vista de detalles si no está cargada
+            if (productDetailView == null) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Product_Detail_View.fxml"));
+                productDetailView = loader.load();
+                productDetailController = loader.getController();
+                productDetailController.setOnBackToCatalog(() -> volverAlCatalogo());
+            }
+            
+            // Configurar el producto en el controlador
+            if (productDetailController != null) {
+                productDetailController.setProducto(nodoProducto);
+            }
+            
+            // Reemplazar el contenido del ScrollPane con la vista de detalles
+            if (mainScrollPane != null && productDetailView != null) {
+                mainScrollPane.setContent(productDetailView);
+            }
+            
+        } catch (IOException e) {
+            System.out.println("Error al cargar vista de detalles: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
+    public void volverAlCatalogo() {
+        // Restaurar el contenido original del ScrollPane
+        if (mainScrollPane != null && catalogContentBackup != null) {
+            mainScrollPane.setContent(catalogContentBackup);
+        }
     }
 }
