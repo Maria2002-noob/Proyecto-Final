@@ -87,10 +87,12 @@ public class Controller_Catalog_Section implements Initializable {
     private AnchorPane cartPanel;
     private AnchorPane changePasswordPanel;
     private AnchorPane checkoutView;
+    private Node purchaseHistoryView;
     private Controller_Wishlist_Panel wishlistController;
     private Controller_Cart_Panel cartController;
     private Controller_Change_Password_Panel changePasswordController;
     private Controller_Checkout_View checkoutController;
+    private Controller_Purchase_History_Panel purchaseHistoryController;
     
     private Node productDetailView;
     private Controller_Product_Detail_View productDetailController;
@@ -333,8 +335,43 @@ public class Controller_Catalog_Section implements Initializable {
     }
     
     @FXML
-    private void handlePurchaseHistory(MouseEvent event) {        
-        System.out.println("Mostrar historial de compras");
+    private void handlePurchaseHistory(MouseEvent event) {
+        if (administrador.getUsuarioActual() == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle(languageManager.getString("alert.error"));
+            alert.setHeaderText(null);
+            alert.setContentText(languageManager.getString("alert.login.required"));
+            alert.showAndWait();
+            return;
+        }
+        
+        try {
+            if (catalogContentBackup == null && mainScrollPane != null) {
+                catalogContentBackup = mainScrollPane.getContent();
+            }
+            
+            if (purchaseHistoryView == null) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Purchase_History_Panel.fxml"));
+                purchaseHistoryView = loader.load();
+                purchaseHistoryController = loader.getController();
+                purchaseHistoryController.setOnClose(() -> volverAlCatalogo());
+            }
+            
+            if (purchaseHistoryController != null) {
+                purchaseHistoryController.refresh();
+                purchaseHistoryController.actualizarTextos();
+            }
+            
+            if (mainScrollPane != null && purchaseHistoryView != null) {
+                mainScrollPane.setContent(purchaseHistoryView);
+                mainScrollPane.setVvalue(0.0);
+            }
+            
+        } catch (IOException e) {
+            System.out.println("Error al cargar panel de historial de compras: " + e.getMessage());
+            e.printStackTrace();
+        }
+        event.consume();
     }
     
     @FXML
@@ -592,9 +629,20 @@ public class Controller_Catalog_Section implements Initializable {
             changePasswordController.actualizarTextos();
         }
         
+        if (purchaseHistoryController != null && purchaseHistoryView != null && 
+            mainScrollPane != null && mainScrollPane.getContent() == purchaseHistoryView) {
+            purchaseHistoryController.actualizarTextos();
+        }
+        
         if (checkoutController != null && checkoutView != null && checkoutView.isVisible()) {
             checkoutController.actualizarTextos();
             checkoutController.actualizarPrecios();
+        }
+        
+        if (purchaseHistoryController != null && purchaseHistoryView != null && 
+            mainScrollPane != null && mainScrollPane.getContent() == purchaseHistoryView) {
+            purchaseHistoryController.actualizarTextos();
+            purchaseHistoryController.actualizarPrecios();
         }
     }
     
@@ -786,6 +834,9 @@ public class Controller_Catalog_Section implements Initializable {
         if (productDetailView != null && mainScrollPane != null && mainScrollPane.getContent() == productDetailView) {
             volverAlCatalogo();
         }
+        if (purchaseHistoryView != null && mainScrollPane != null && mainScrollPane.getContent() == purchaseHistoryView) {
+            volverAlCatalogo();
+        }
         restablecerFiltro();
     }
     
@@ -971,6 +1022,7 @@ public class Controller_Catalog_Section implements Initializable {
                         
             if (mainScrollPane != null && productDetailView != null) {
                 mainScrollPane.setContent(productDetailView);
+                mainScrollPane.setVvalue(0.0);
             }
             
         } catch (IOException e) {
@@ -982,6 +1034,7 @@ public class Controller_Catalog_Section implements Initializable {
     public void volverAlCatalogo() {        
         if (mainScrollPane != null && catalogContentBackup != null) {
             mainScrollPane.setContent(catalogContentBackup);
+            mainScrollPane.setVvalue(0.0);
         }
     }
     
