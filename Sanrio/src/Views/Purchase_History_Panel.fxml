@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane fx:id="rootPane" prefHeight="650.0" prefWidth="1200.0" styleClass="purchase-history-panel" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Controller_Purchase_History_Panel">
+    <stylesheets>
+        <URL value="@../Styles/Purchase_History_Panel.css" />
+    </stylesheets>
+    
+    <padding>
+        <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+    </padding>
+    
+    <HBox alignment="TOP_CENTER" fillHeight="false" prefHeight="647.0" prefWidth="1200.0" spacing="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <!-- Left Panel: Banner -->
+        <VBox alignment="CENTER" prefHeight="642.0" prefWidth="400.0" styleClass="history-left-panel">
+            <ImageView fitHeight="579.0" fitWidth="189.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../Images/mob-footer.jpg" />
+                </image>
+            </ImageView>
+        </VBox>
+        
+        <!-- Right Panel: Table -->
+        <VBox alignment="TOP_CENTER" prefHeight="640.0" prefWidth="800.0" spacing="0.0" styleClass="history-right-panel">
+            <!-- Header -->
+            <HBox alignment="CENTER" spacing="10.0" styleClass="history-header">
+                <Label fx:id="titleLabel" styleClass="history-title" text="Purchase history" />
+                <HBox prefHeight="100.0" prefWidth="200.0" />
+                <Label fx:id="closeButton" onMouseClicked="#handleClose" styleClass="close-button" text="✕" />
+            </HBox>
+            
+            <!-- Separator -->
+            <Rectangle fill="#D3D3D3" height="1.0" width="780.0" />
+            
+            <!-- Table -->
+            <ScrollPane fitToWidth="true" hbarPolicy="AS_NEEDED" prefHeight="750.0" styleClass="history-scroll" vbarPolicy="AS_NEEDED">
+                <content>
+                    <TableView fx:id="historyTableView" prefHeight="750.0" prefWidth="780.0" styleClass="history-table">
+                        <columns>
+                            <TableColumn fx:id="productNumberColumn" editable="false" prefWidth="143.0" text="N° DE PRODUCTO" />
+                            <TableColumn fx:id="productNameColumn" editable="false" prefWidth="208.0" text="NOMBRE PRODUCTO" />
+                            <TableColumn fx:id="productPriceColumn" editable="false" prefWidth="162.0" text="PRECIO PRODUCTO" />
+                            <TableColumn fx:id="buyerEmailColumn" editable="false" prefWidth="267.0" text="CORREO COMPRADOR" />
+                        </columns>
+                    </TableView>
+                </content>
+            </ScrollPane>
+            
+            <!-- Empty State -->
+            <VBox fx:id="emptyStateContainer" alignment="CENTER" spacing="10.0" styleClass="empty-state" visible="false">
+                <Label fx:id="emptyStateLabel" styleClass="empty-state-label" text="No hay compras registradas" />
+            </VBox>
+        </VBox>
+    </HBox>
+</AnchorPane>
