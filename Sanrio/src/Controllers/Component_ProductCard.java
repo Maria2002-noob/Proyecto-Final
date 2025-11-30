@@ -37,6 +37,7 @@ public class Component_ProductCard {
     
     private Nodo_Producto nodoProducto;
     private Runnable onAddToBag;
+    private Runnable onImageClick;
     private LanguageManager languageManager;
     
     private boolean inicializado = false;
@@ -96,6 +97,15 @@ public class Component_ProductCard {
             if (productImageView != null) {
                 loadProductImage(producto);
                 configurarHoverImagen();
+                if (onImageClick != null) {
+                    productImageView.setOnMouseClicked(e -> {
+                        if (onImageClick != null) {
+                            onImageClick.run();
+                        }
+                        e.consume();
+                    });
+                    productImageView.setStyle("-fx-cursor: hand;");
+                }
             }
         }
     }
@@ -106,6 +116,19 @@ public class Component_ProductCard {
     
     public void setOnAddToBag(Runnable onAddToBag) {
         this.onAddToBag = onAddToBag;
+    }
+    
+    public void setOnImageClick(Runnable onImageClick) {
+        this.onImageClick = onImageClick;
+        if (productImageView != null && onImageClick != null) {
+            productImageView.setOnMouseClicked(e -> {
+                if (onImageClick != null) {
+                    onImageClick.run();
+                }
+                e.consume();
+            });
+            productImageView.setStyle("-fx-cursor: hand;");
+        }
     }
     
     public Node getRoot() {
