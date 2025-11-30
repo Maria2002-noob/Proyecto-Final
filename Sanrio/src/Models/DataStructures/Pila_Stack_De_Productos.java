@@ -251,6 +251,18 @@ public class Pila_Stack_De_Productos {
         return productosUsuario;
     }
     
+    public Stack<Producto> obtenerProductosHistorialPorUsuario(String correoUsuario) {
+        Stack<Producto> productosUsuario = new Stack<>();
+        for (Producto producto : producto_historial) {
+            String correoProducto = producto.getCorreo_usuario();
+            // getCorreo_usuario() puede devolver "NULL" si es null o vacío
+            if (correoProducto != null && !correoProducto.equals("NULL") && correoProducto.equals(correoUsuario)) {
+                productosUsuario.push(producto);
+            }
+        }
+        return productosUsuario;
+    }
+    
     public boolean eliminarDeCarrito(String identificacion, String correoUsuario) {
         Producto producto = obtenerProductoPorCorreoYNombre(productos_en_carrito, correoUsuario, identificacion);
         if (producto != null) {
