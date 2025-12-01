@@ -1,5 +1,5 @@
-nombre: 
-categoria:
-descripcionIngles:
-descripcionEspanol:
-precio:
+nombre: Tote Bag (My Melody 50th)
+categoria: Tote Bag
+descripcionIngles: Celebrate two beloved characters with this delightful new collection! Marking My Melody’s 50th and Kuromi’s 20th anniversaries, the “My Melody & Kuromi Melo Design Series” brings a fresh spin to the classic and elegant series. Featuring trendy fluffy rabbit textures and adorable heart quilting, this playful collection is sure to win the hearts of fans everywhere	
+descripcionEspanol: ¡Celebra a dos queridos personajes con esta encantadora nueva colección! Para celebrar el 50.º aniversario de My Melody y el 20.º de Kuromi, la "Serie de Diseño My Melody y Kuromi Melo" le da un toque fresco a la clásica y elegante serie. Con modernas y esponjosas texturas de conejo y un adorable acolchado de corazones, esta divertida colección sin duda conquistará a los fans de todo el mundo.
+precio: 27.99

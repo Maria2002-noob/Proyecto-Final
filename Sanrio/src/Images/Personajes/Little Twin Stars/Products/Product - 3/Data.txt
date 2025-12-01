@@ -1,5 +1,5 @@
-nombre: 
-categoria:
-descripcionIngles:
-descripcionEspanol:
-precio:
+nombre: Parfait Tie-dye Spirit Jersey
+categoria: T-shirt
+descripcionIngles: This LittleTwinStars Parfait JapanLA Spirit Jersey features a pink and blue cloud tie-dye with Kiki and Lala and a giant parfait printed on the front. On the upper back, LittleTwinStars is printed in silver puff print. On the bottom back, Kiki and Lala enjoy some ice cream.
+descripcionEspanol: Esta camiseta LittleTwinStars Parfait JapanLA Spirit presenta un diseño tie-dye de nubes rosas y azules con Kiki y Lala y un parfait gigante estampado en la parte delantera. En la parte superior de la espalda, LittleTwinStars luce un estampado plateado. En la parte inferior de la espalda, Kiki y Lala disfrutan de un helado.
+precio: 36.99

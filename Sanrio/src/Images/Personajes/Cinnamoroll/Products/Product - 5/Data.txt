@@ -1,5 +1,5 @@
-nombre: 
-categoria:
-descripcionIngles:
-descripcionEspanol:
-precio:
+nombre: Plush Mascot Keychain
+categoria: Plush, Keychain
+descripcionIngles: A special collaboration piece between JapanLA and Sanrio. Stay warm and cute in our light pink Cinnamoroll Bows Puffer Jacket from JapanLA! Features an adorable print of Cinnamoroll wearing pink bows on the front and back, with secure snap buttons, a zipper, and a removable hood for convenience.
+descripcionEspanol: Una colaboración especial entre JapanLA y Sanrio. ¡Abrígate y diviértete con nuestra chaqueta acolchada rosa claro con lazos Cinnamoroll de JapanLA! Luce un adorable estampado de Cinnamoroll con lazos rosas por delante y por detrás, con botones a presión, cremallera y capucha extraíble para mayor comodidad.
+precio: 112.99

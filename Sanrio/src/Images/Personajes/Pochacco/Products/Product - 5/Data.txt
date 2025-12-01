@@ -1,5 +1,5 @@
-nombre: 
-categoria:
-descripcionIngles:
-descripcionEspanol:
-precio:
+nombre: Ultra-Premier Detective Plush
+categoria: Plush
+descripcionIngles: Pochacco is styled as an irresistibly cute detective, wearing a plaid trench coat with cuffed sleeves and a matching beret! He’s the perfect playful addition to brighten up your collection!
+descripcionEspanol: Pochacco luce un estilo de detective irresistiblemente adorable, con una gabardina a cuadros con mangas con puños y una boina a juego. ¡Es la adición divertida perfecta para alegrar tu colección!
+precio: 29.99

@@ -1,5 +1,5 @@
-nombre: 
-categoria:
-descripcionIngles:
-descripcionEspanol:
-precio:
+nombre: Zipper Pouch (Floral Houndstooth)
+categoria: Zipper Pouch
+descripcionIngles: A colorfully coated houndstooth print and the sweetest beaded zipper charm make this mini pouch a must-have for storing daily essentials, makeup, and more!
+descripcionEspanol: ¡Un estampado de pata de gallo con un revestimiento colorido y un adorable dije con cierre de cuentas hacen de esta mini bolsa un accesorio imprescindible para guardar artículos esenciales diarios, maquillaje y mucho más!
+precio: 13.99

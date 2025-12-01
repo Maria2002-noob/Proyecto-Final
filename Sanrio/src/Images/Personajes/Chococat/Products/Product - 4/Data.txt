@@ -1,5 +1,5 @@
-nombre: 
-categoria:
-descripcionIngles:
-descripcionEspanol:
-precio:
+nombre: Mini Tote Bag (Sanrio Cat Club Series)
+categoria: Tote Bag
+descripcionIngles: A series that is just purr-fect for cat lovers! Enjoy some of Sanrio’s favorite felines in this adorable series featuring Chococat, Noranekoland, Nya Ni Nyu Nye Nyon, and Masyumaro! Tote around some of the cutest bag styles like a mini tote or a classic handbag, while adding some extra flair with the matching plush bag charm!
+descripcionEspanol: ¡Una serie perfecta para los amantes de los gatos! Disfruta de algunos de los felinos favoritos de Sanrio en esta adorable serie con Chococat, Noranekoland, Nya Ni Nyu Nye Nyon y Masyumaro. Lleva contigo bolsos con diseños adorables, como mini tote o bolsos clásicos, y añade un toque especial con el colgante de peluche a juego.
+precio: 14.99

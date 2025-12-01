@@ -1,5 +1,5 @@
-nombre: 
-categoria:
-descripcionIngles:
-descripcionEspanol:
-precio:
+nombre: Mini Zipper Pouch
+categoria: Zipper Pouch
+descripcionIngles: A cloud-like feel makes this mini zipper pouch a joy to have! Carry your favorite Sanrio Character and keep your everyday essentials organized and safe. The cute heart-shaped zipper pull and matching embroidered strap are fun details, but the positive message about friendship is even better!
+descripcionEspanol: ¡Esta minibolsa con cremallera es un placer gracias a su tacto de nube! Lleva a tu personaje favorito de Sanrio y mantén tus objetos esenciales organizados y seguros. El adorable tirador de la cremallera en forma de corazón y la correa bordada a juego son detalles divertidos, ¡pero el mensaje positivo sobre la amistad es aún mejor!
+precio: 6.99

@@ -1,5 +1,5 @@
-nombre: 
-categoria:
-descripcionIngles:
-descripcionEspanol:
-precio:
+nombre: Zipper Pouch (Glasses Series)
+categoria: Zipper Pouch
+descripcionIngles: A little nerdy and playful, but always cool, Chococat comes through with a very “studious” look. Bright blue glasses accent his big eyes which we think is his best feature (don’t you think?) in this ready-for-winter tweed series, brimming with accessories, plush, and more!
+descripcionEspanol: Un poco friki y juguetón, pero siempre genial, Chococat luce un look muy estudioso. Sus brillantes gafas azules realzan sus grandes ojos, que creemos que es su mejor característica (¿no crees?) en esta serie de tweed lista para el invierno, repleta de accesorios, peluches y mucho más.
+precio: 14.99

@@ -1,5 +1,5 @@
-nombre: 
-categoria:
-descripcionIngles:
-descripcionEspanol:
-precio:
+nombre: Zipper Pouch Set
+categoria: Zipper Pouch
+descripcionIngles: Take a peek into the silly life of Badtz-maru, the mischief-loving penguin. He's got big dreams for the future, but for now, he's just rollin' his eyes at the hilarity of living in Gorgeoustown. Check out his different faces and moods in this collection of bags, stuffed animals, and more!
+descripcionEspanol: Echa un vistazo a la divertida vida de Badtz-maru, el pingüino travieso. Tiene grandes sueños para el futuro, pero por ahora, solo se deleita con la diversión de vivir en Ciudad Preciosa. ¡Descubre sus diferentes caras y estados de ánimo en esta colección de bolsos, peluches y mucho más!
+precio: 13.99

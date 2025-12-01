@@ -1,5 +1,5 @@
 nombre: Igloo Classic Backpack Cooler
-categoria: Backpacks
+categoria: Backpack
 descripcionIngles: Enjoy the happiest hangouts with a special-edition Hello Kitty backpack. This cooler style stars everyone’s favorite friend with pops of red, including her signature red bow as a supercute detail on the front pocket (and on the zipper pulls) — and designed to make sure you have a super fun time on all your adventures.
 descripcionEspanol: Disfruta al máximo de tus reuniones con una mochila Hello Kitty de edición especial. Este moderno diseño presenta a la amiga favorita de todos con toques de rojo, incluyendo su característico lazo rojo como un detalle súper tierno en el bolsillo frontal (y en los tiradores de las cremalleras), y está diseñado para que te diviertas al máximo en todas tus aventuras.
 precio: 49.99

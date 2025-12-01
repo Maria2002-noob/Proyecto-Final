@@ -1,5 +1,5 @@
-nombre: Pompompurin Plush Keychain
-categoria: Plush, Keychain
-descripcionIngles: This fun design series captures the essence of summer festivals, a highlight of the Japanese vacation season. These plush mascot keychains feature colorful character motifs with yukatas and masks, making it a supercute accessory to add to a bag or tote!
-descripcionEspanol: Esta divertida colección captura la esencia de los festivales de verano, uno de los eventos más destacados de las vacaciones japonesas. Estos llaveros de peluche con forma de mascota presentan coloridos personajes con yukatas y máscaras, ¡lo que los convierte en un accesorio súper tierno para añadir a un bolso o mochila!
-precio: 26.00
+nombre:  Loungefly Color Dip Mini Backpack
+categoria: Backpack
+descripcionIngles: Stepping out for cream caramel puddings? Don’t forget to take along this adorable Pompompurin mini backpack! Pompompurin’s signature pastel yellow color, along with textured faux leather, make this accessory an elegant stand-out. Appliques of his beret and ears add a touch of character—and Muffin tags along as a faux leather charm. Pack just what you need for a day with friends, sharing smiles wherever you go.
+descripcionEspanol: ¿Vas a comer postres de caramelo? ¡No olvides llevar esta adorable minimochila de Pompompurin! Su característico color amarillo pastel, junto con su piel sintética texturizada, hacen de este accesorio un accesorio elegante y llamativo. Los apliques de su boina y orejas le dan un toque de personalidad, y Muffin lo acompaña como un dije de piel sintética. Lleva justo lo que necesitas para un día con amigos y compartir sonrisas dondequiera que vayas.
+precio: 56.00

@@ -1,5 +1,5 @@
-nombre: 
-categoria:
-descripcionIngles:
-descripcionEspanol:
-precio:
+nombre: Plush Keychain (All Together)
+categoria: Push, Keychain
+descripcionIngles: "Together, anything is possible! Let's join hands and unleash our Hapi-power!" Meet Hapidanbui, a fun-loving Sanrio gang made up of six charming friends: Badtz-Maru, Tuxedosam, Pochacco, Hangyodon, Keroppi, and Pekkle. These adorable characters embody friendship, joy, and good energy, all while rocking the coolest hoodies. Let the cheerful spirit of Hapidanbui lift your mood and spread kawaii magic everywhere you go!
+descripcionEspanol: ¡Juntos, todo es posible! ¡Unamos nuestras manos y desatemos nuestro Hapi-poder! Conoce a Hapidanbui, una divertida pandilla de Sanrio compuesta por seis encantadores amigos: Badtz-Maru, Tuxedosam, Pochacco, Hangyodon, Keroppi y Pekkle. Estos adorables personajes encarnan la amistad, la alegría y la buena energía, todo con las sudaderas más geniales. ¡Deja que el alegre espíritu de Hapidanbui te levante el ánimo y contagie la magia kawaii dondequiera que vayas!
+precio: 9.99

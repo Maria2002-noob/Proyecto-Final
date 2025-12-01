@@ -1,5 +1,5 @@
-nombre: 
-categoria:
-descripcionIngles:
-descripcionEspanol:
-precio:
+nombre: Tote Bag (Pastel Frame Design Series)
+categoria: Tote Bag
+descripcionIngles: “Welcome to the world of Kiki and Lala.” This adorable twin duo enchants and delights in this pastel-hued series featuring framed vignettes with sweet sayings and adorable home, plush, and small accessories. Enjoy the magical details and let them bring the twinkling skies of the Yume Star-Cloud into your universe!
+descripcionEspanol: ¡Bienvenidos al mundo de Kiki y Lala! Este adorable dúo de gemelas cautiva y deleita en esta serie en tonos pastel con viñetas enmarcadas con frases tiernas y adorables accesorios para el hogar, el peluche y los pequeños detalles. ¡Disfruta de los mágicos detalles y deja que traigan los cielos centelleantes de la Nube Estelar de Yume a tu universo!
+precio: 25.20

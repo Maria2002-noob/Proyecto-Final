@@ -1,5 +1,5 @@
-nombre: 
-categoria:
-descripcionIngles:
-descripcionEspanol:
-precio:
+nombre: Way Easy Tote
+categoria: Tote Easy
+descripcionIngles: This mini tote bag offers two fun ways to carry it and lets you personalize with your favorite Sanrio charms and mascots! With its simple design, it pairs easily with any outfit. Carry it your way—by hand or over your shoulder, for a playful and practical style!
+descripcionEspanol: Este mini bolso tote ofrece dos divertidas maneras de llevarlo y te permite personalizarlo con tus charms y mascotas favoritas de Sanrio. Con su diseño sencillo, combina fácilmente con cualquier outfit. Llévalo como quieras, en la mano o al hombro, ¡para un estilo divertido y práctico!
+precio: 24.99

@@ -1,5 +1,5 @@
-nombre: 
-categoria:
-descripcionIngles:
-descripcionEspanol:
-precio:
+nombre: All-over Print Backpack
+categoria: Backpack
+descripcionIngles: This medium size backpack is just what you need for daily use or sports activities! The pockets (including one for your laptop) give plenty of room for all your necessities, while the water-resistant material will protect them from the weather.
+descripcionEspanol: Esta mochila mediana es justo lo que necesitas para el día a día o para tus actividades deportivas. Los bolsillos (incluido uno para el portátil) ofrecen amplio espacio para todo lo necesario, mientras que el material impermeable los protege del clima.
+precio: 40.99

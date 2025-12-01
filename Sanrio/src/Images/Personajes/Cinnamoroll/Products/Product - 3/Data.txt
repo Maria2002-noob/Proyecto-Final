@@ -1,5 +1,5 @@
-nombre: 
-categoria:
-descripcionIngles:
-descripcionEspanol:
-precio:
+nombre: Foldable Lunch Tote
+categoria: Lunch Tote
+descripcionIngles: Keep lunch organized and secure in this supercute reusable tote bag! The fun motif features your favorite Sanrio Character and even folds down for easy storage. Bento boxes, snack containers, and even your water bottle have an eco-friendly home in a tote!
+descripcionEspanol: Mantén tu almuerzo organizado y seguro en esta adorable bolsa reutilizable. Su divertido diseño de tu personaje favorito de Sanrio e incluso se pliega para guardarlo fácilmente. ¡Tus cajas bento, recipientes para refrigerios e incluso tu botella de agua tienen un hogar ecológico en esta bolsa!
+precio: 7.99

@@ -83,9 +83,8 @@ public class Controller_Purchase_History_Panel {
             showEmptyState();
             return;
         }
-        
-        String correoUsuario = administrador.getUsuarioActual().getUsuario().getCorreo();
-        Stack<Producto> productosHistorial = pilaProductos.obtenerProductosHistorialPorUsuario(correoUsuario);
+                
+        Stack<Producto> productosHistorial = pilaProductos.getProducto_historial();
         
         historyItems.clear();
         
@@ -96,7 +95,7 @@ public class Controller_Purchase_History_Panel {
             
             int contador = 1;
             for (Producto producto : productosHistorial) {
-                String productNumber = formatProductNumber(producto.getIdentificacion(), contador);
+                String productNumber = producto.getIdentificacion();
                 String productName = producto.getNombre();
                 String productPrice = languageManager.formatPrice(producto.getPrecio());
                 String buyerEmail = producto.getCorreo_usuario();
@@ -106,24 +105,7 @@ public class Controller_Purchase_History_Panel {
                 contador++;
             }
         }
-    }
-    
-    private String formatProductNumber(String identificacion, int contador) {
-        // Extraer el número de la identificación (ej: "Hello Kitty-1" -> "1")
-        String productNum = identificacion;
-        if (identificacion.contains("-")) {
-            productNum = identificacion.substring(identificacion.lastIndexOf("-") + 1);
-        }
-        
-        // Formatear con ceros a la izquierda (ej: "1" -> "#001")
-        try {
-            int num = Integer.parseInt(productNum);
-            return String.format("#%03d", num);
-        } catch (NumberFormatException e) {
-            // Si no se puede parsear, usar el contador
-            return String.format("#%03d", contador);
-        }
-    }
+    }     
     
     private void showEmptyState() {
         if (emptyStateContainer != null) {

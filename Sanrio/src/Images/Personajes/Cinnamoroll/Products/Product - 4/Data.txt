@@ -1,5 +1,5 @@
-nombre: 
-categoria:
-descripcionIngles:
-descripcionEspanol:
-precio:
+nombre: Insulated Lunch Bag
+categoria: Lunch Bag
+descripcionIngles: Lunch is more fun with your favorite Sanrio Characters! From fresh fruit and yogurt to a thirst-quenching drink, this insulated bag keeps foods chilled for any outside adventures. Plus, it coordinates with our vast selection of bento boxes, travel tumblers, and chopstick cases too!
+descripcionEspanol: ¡Almorzar es más divertido con tus personajes favoritos de Sanrio! Desde fruta fresca y yogur hasta una bebida refrescante, esta bolsa térmica mantiene la comida fresca para cualquier aventura al aire libre. ¡Además, combina con nuestra amplia selección de cajas bento, vasos de viaje y estuches para palillos!
+precio: 30.99

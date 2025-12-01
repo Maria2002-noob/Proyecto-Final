@@ -1,5 +1,5 @@
-nombre: 
-categoria:
-descripcionIngles:
-descripcionEspanol:
-precio:
+nombre: Baggu Baby Baggu (Yellow)
+categoria: Baggu
+descripcionIngles: Based in San Francisco, BAGGU makes simple, intentional things for everyday use. These include a lot of bags — but they like to make other things too. Fabric masks, keychains, wallets, towels… the list goes on!
+descripcionEspanol: Con sede en San Francisco, BAGGU crea artículos sencillos y prácticos para el día a día. Incluyen muchos bolsos, pero también les gusta crear otras cosas: mascarillas de tela, llaveros, carteras, toallas… ¡y la lista continúa!
+precio: 9.00

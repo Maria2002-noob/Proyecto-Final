@@ -1,5 +1,5 @@
-nombre: 
-categoria:
-descripcionIngles:
-descripcionEspanol:
-precio:
+nombre: Face Sculpted Mug
+categoria: Mug
+descripcionIngles: Enjoy your morning cup with Keroppi by your side! Great for big cups of coffee, hot cocoa or tea. You can even use it to hold pens, markers or any other items that need organizing. It’s sure to brighten your daily drink ritual or a Keroppi fan in your life!
+descripcionEspanol: ¡Disfruta de tu taza matutina con Keroppi a tu lado! Ideal para tazas grandes de café, chocolate caliente o té. Incluso puedes usarla para guardar bolígrafos, rotuladores o cualquier otro objeto que necesites organizar. ¡Seguro que alegrará tu rutina diaria de bebidas o a un fan de Keroppi en tu vida!
+precio: 7.99

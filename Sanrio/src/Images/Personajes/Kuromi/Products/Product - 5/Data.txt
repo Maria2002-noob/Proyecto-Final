@@ -1,5 +1,5 @@
-nombre: 
-categoria:
-descripcionIngles:
-descripcionEspanol:
-precio:
+nombre: Way Mini Tote
+categoria: Plush, Tote Bag
+descripcionIngles: Soft to the touch, these plush mini-totes are perfect for everyday essentials and when you fit need a playful Sanrio touch! Wear it as a crossbody or carry on the arm while making keys, your wallet, or anything else within reach!
+descripcionEspanol: Suaves al tacto, estos minibolsos de peluche son perfectos para tus artículos esenciales de diario y para cuando necesitas un toque divertido de Sanrio. Llévalos cruzados o del brazo para tener las llaves, la cartera o cualquier otra cosa a mano.
+precio: 18.99

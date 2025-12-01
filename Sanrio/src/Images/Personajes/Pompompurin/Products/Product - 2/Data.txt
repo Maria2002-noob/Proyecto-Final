@@ -1,5 +1,5 @@
-nombre: 
-categoria:
-descripcionIngles:
-descripcionEspanol:
-precio:
+nombre: Plush Keychain (Sailor Series)
+categoria: Plush, Keychain
+descripcionIngles: Ready to set sail? This maritime-themed series features your favorite Sanrio Characters in adorable sailor outfits. Dressed for the seven seas, this collection comes complete with plush mascots, keychains, and adorable accessories sure to lift your mood. So say bon voyage and let the fun begin!
+descripcionEspanol: ¿Listos para zarpar? Esta serie de temática marítima presenta a tus personajes favoritos de Sanrio con adorables trajes de marinero. Vestidos para los siete mares, esta colección incluye mascotas de peluche, llaveros y adorables accesorios que seguro te alegrarán el día. ¡Así que diles "buen viaje" y que empiece la diversión!
+precio: 16.99

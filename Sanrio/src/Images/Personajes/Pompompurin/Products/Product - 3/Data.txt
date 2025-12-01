@@ -1,5 +1,5 @@
-nombre: 
-categoria:
-descripcionIngles:
-descripcionEspanol:
-precio:
+nombre: Gingham Zipper Pouch
+categoria: Zipper Pouch
+descripcionIngles: Add a pop of happiness to your day with this gingham pencil pouch, featuring fun artwork and your favorite Sanrio Character! Water resistant, slim, and lightweight, this pencil pouch keeps all your favorite writing utensils organized and safe.
+descripcionEspanol: Dale un toque de alegría a tu día con este estuche de guinga, ¡con divertidas ilustraciones y tu personaje favorito de Sanrio! Resistente al agua, delgado y ligero, este estuche mantiene todos tus útiles de escritura favoritos organizados y seguros.
+precio: 6.99
